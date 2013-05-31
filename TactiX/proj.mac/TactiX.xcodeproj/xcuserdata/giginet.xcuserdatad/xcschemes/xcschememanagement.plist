@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>cocos2dx.xcscheme</key>
+		<key>TactiX.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
@@ -12,7 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1551A33E158F2AB200E66CFE</key>
+		<key>077C3DF517590E2F00024FE7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>41851B9115B93C32004083E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
