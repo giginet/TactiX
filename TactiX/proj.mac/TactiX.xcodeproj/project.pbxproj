@@ -29,17 +29,6 @@
 		077C46BD1759180D00024FE7 /* tolua_to.c in Sources */ = {isa = PBXBuildFile; fileRef = 077C46041759180C00024FE7 /* tolua_to.c */; };
 		077C46C01759194200024FE7 /* libluajit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077C46BF1759194200024FE7 /* libluajit.a */; };
 		077C46C21759197500024FE7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077C46C11759197500024FE7 /* CoreAudio.framework */; };
-		077C46CE17591D1600024FE7 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 077C46C317591AFC00024FE7 /* background.mp3 */; };
-		077C46CF17591D1600024FE7 /* background.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 077C46C417591AFC00024FE7 /* background.ogg */; };
-		077C46D017591D1600024FE7 /* crop.png in Resources */ = {isa = PBXBuildFile; fileRef = 077C46C517591AFC00024FE7 /* crop.png */; };
-		077C46D117591D1600024FE7 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 077C46C617591AFC00024FE7 /* dog.png */; };
-		077C46D217591D1600024FE7 /* effect1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 077C46C717591AFC00024FE7 /* effect1.wav */; };
-		077C46D317591D1600024FE7 /* farm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 077C46C817591AFC00024FE7 /* farm.jpg */; };
-		077C46D417591D1600024FE7 /* hello.lua in Resources */ = {isa = PBXBuildFile; fileRef = 077C46C917591AFC00024FE7 /* hello.lua */; };
-		077C46D517591D1600024FE7 /* hello2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 077C46CA17591AFC00024FE7 /* hello2.lua */; };
-		077C46D617591D1600024FE7 /* land.png in Resources */ = {isa = PBXBuildFile; fileRef = 077C46CB17591AFC00024FE7 /* land.png */; };
-		077C46D717591D1600024FE7 /* menu1.png in Resources */ = {isa = PBXBuildFile; fileRef = 077C46CC17591AFC00024FE7 /* menu1.png */; };
-		077C46D817591D1600024FE7 /* menu2.png in Resources */ = {isa = PBXBuildFile; fileRef = 077C46CD17591AFC00024FE7 /* menu2.png */; };
 		41BC70AD15BF7CCE006A0A6C /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 41BC70AC15BF7CCE006A0A6C /* Icon.icns */; };
 		41CD6C6515BF7574005E6F29 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 41CD6C6315BF7574005E6F29 /* AppController.mm */; };
 		41CD6C6615BF7574005E6F29 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CD6C6415BF7574005E6F29 /* main.m */; };
@@ -115,17 +104,7 @@
 		077C46041759180C00024FE7 /* tolua_to.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tolua_to.c; sourceTree = "<group>"; };
 		077C46BF1759194200024FE7 /* libluajit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libluajit.a; sourceTree = "<group>"; };
 		077C46C11759197500024FE7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		077C46C317591AFC00024FE7 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = background.mp3; path = ../Resources/background.mp3; sourceTree = "<group>"; };
-		077C46C417591AFC00024FE7 /* background.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = background.ogg; path = ../Resources/background.ogg; sourceTree = "<group>"; };
-		077C46C517591AFC00024FE7 /* crop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = crop.png; path = ../Resources/crop.png; sourceTree = "<group>"; };
-		077C46C617591AFC00024FE7 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dog.png; path = ../Resources/dog.png; sourceTree = "<group>"; };
-		077C46C717591AFC00024FE7 /* effect1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = effect1.wav; path = ../Resources/effect1.wav; sourceTree = "<group>"; };
-		077C46C817591AFC00024FE7 /* farm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = farm.jpg; path = ../Resources/farm.jpg; sourceTree = "<group>"; };
-		077C46C917591AFC00024FE7 /* hello.lua */ = {isa = PBXFileReference; lastKnownFileType = text; name = hello.lua; path = ../Resources/hello.lua; sourceTree = "<group>"; };
-		077C46CA17591AFC00024FE7 /* hello2.lua */ = {isa = PBXFileReference; lastKnownFileType = text; name = hello2.lua; path = ../Resources/hello2.lua; sourceTree = "<group>"; };
-		077C46CB17591AFC00024FE7 /* land.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = land.png; path = ../Resources/land.png; sourceTree = "<group>"; };
-		077C46CC17591AFC00024FE7 /* menu1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu1.png; path = ../Resources/menu1.png; sourceTree = "<group>"; };
-		077C46CD17591AFC00024FE7 /* menu2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu2.png; path = ../Resources/menu2.png; sourceTree = "<group>"; };
+		077C46DD175A454A00024FE7 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = ../Resources; sourceTree = "<group>"; };
 		41BC70AC15BF7CCE006A0A6C /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		41CD6C5115BF748C005E6F29 /* TactiX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TactiX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41CD6C6215BF7574005E6F29 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
@@ -319,7 +298,7 @@
 				41CD6C5E15BF7514005E6F29 /* Frameworks */,
 				41CD6C5F15BF7522005E6F29 /* mac */,
 				41EFC1BB15BF7AC30083EA95 /* Products */,
-				41CD6C6115BF7556005E6F29 /* Resources */,
+				077C46DD175A454A00024FE7 /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -362,24 +341,6 @@
 				41CD6C6715BF7673005E6F29 /* en.lproj */,
 			);
 			name = mac;
-			sourceTree = "<group>";
-		};
-		41CD6C6115BF7556005E6F29 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				077C46C317591AFC00024FE7 /* background.mp3 */,
-				077C46C417591AFC00024FE7 /* background.ogg */,
-				077C46C517591AFC00024FE7 /* crop.png */,
-				077C46C617591AFC00024FE7 /* dog.png */,
-				077C46C717591AFC00024FE7 /* effect1.wav */,
-				077C46C817591AFC00024FE7 /* farm.jpg */,
-				077C46C917591AFC00024FE7 /* hello.lua */,
-				077C46CA17591AFC00024FE7 /* hello2.lua */,
-				077C46CB17591AFC00024FE7 /* land.png */,
-				077C46CC17591AFC00024FE7 /* menu1.png */,
-				077C46CD17591AFC00024FE7 /* menu2.png */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		41CD6C6715BF7673005E6F29 /* en.lproj */ = {
@@ -466,17 +427,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				077C46CE17591D1600024FE7 /* background.mp3 in Resources */,
-				077C46CF17591D1600024FE7 /* background.ogg in Resources */,
-				077C46D017591D1600024FE7 /* crop.png in Resources */,
-				077C46D117591D1600024FE7 /* dog.png in Resources */,
-				077C46D217591D1600024FE7 /* effect1.wav in Resources */,
-				077C46D317591D1600024FE7 /* farm.jpg in Resources */,
-				077C46D417591D1600024FE7 /* hello.lua in Resources */,
-				077C46D517591D1600024FE7 /* hello2.lua in Resources */,
-				077C46D617591D1600024FE7 /* land.png in Resources */,
-				077C46D717591D1600024FE7 /* menu1.png in Resources */,
-				077C46D817591D1600024FE7 /* menu2.png in Resources */,
 				41CD6C6E15BF7673005E6F29 /* InfoPlist.strings in Resources */,
 				41CD6C6F15BF7673005E6F29 /* MainMenu.xib in Resources */,
 				41BC70AD15BF7CCE006A0A6C /* Icon.icns in Resources */,
