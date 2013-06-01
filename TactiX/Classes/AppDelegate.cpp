@@ -1,4 +1,4 @@
-#include "cocos2d.h"
+﻿#include "cocos2d.h"
 #include "AppDelegate.h"
 #include "SimpleAudioEngine.h"
 #include "script_support/CCScriptSupport.h"
@@ -37,6 +37,15 @@ bool AppDelegate::applicationDidFinishLaunching()
     // register lua engine
     CCLuaEngine* pEngine = CCLuaEngine::defaultEngine();
     CCScriptEngineManager::sharedManager()->setScriptEngine(pEngine);
+
+    // Pathの設定
+    // ToDo あとでLuaからincludeできるようにする
+    std::vector<std::string> paths;
+    paths.push_back("Script");
+    paths.push_back("Music");
+    paths.push_back("Image");
+    paths.push_back("SE");
+    CCFileUtils::sharedFileUtils()->setSearchPaths(paths);
 
     std::string path = CCFileUtils::sharedFileUtils()->fullPathForFilename("hello.lua");
     pEngine->executeScriptFile(path.c_str());
