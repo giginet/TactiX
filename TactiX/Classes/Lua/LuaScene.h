@@ -27,9 +27,11 @@ public:
     static CCScene *createScene(const char *filename);
     LuaScene(const char *filename);
     virtual ~LuaScene();
+    virtual bool init();
     virtual void onEnter();
     virtual void onExit();
     virtual void onEnterTransitionDidFinish();
+    virtual void update(float dt);
 };
 
 #endif /* defined(__TactiX__LuaScene__) */

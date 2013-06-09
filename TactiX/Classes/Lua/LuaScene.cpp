@@ -23,9 +23,18 @@ CCScene * LuaScene::createScene(const char *filename) {
 
 LuaScene::LuaScene(const char *filename) {
     _obj = shared_ptr<LuaObject>(new LuaObject(filename));
+    this->scheduleUpdate();
 }
 
 LuaScene::~LuaScene() {
+}
+
+bool LuaScene::init() {
+    if (CCLayer::init()) {
+        _obj->getLuaEngineWithLoad()->getLuaStack()->executeGlobalFunction("init");
+        return true;
+    }
+    return false;
 }
 
 void LuaScene::onEnter() {
@@ -38,4 +47,15 @@ void LuaScene::onExit() {
 
 void LuaScene::onEnterTransitionDidFinish() {
     _obj->getLuaEngineWithLoad()->getLuaStack()->executeGlobalFunction("onEnterTransitionDidFinish");
+}
+
+void LuaScene::update(float dt) {
+    lua_State *L = _obj->getLuaEngineWithLoad()->getLuaStack()->getLuaState();
+    lua_getglobal(L, "update");
+    if (lua_isfunction(L, lua_gettop(L))) {
+        lua_pushnumber(L, dt);
+        if (lua_pcall(L, 1, 0, 0)) {
+            CCLog("%s", lua_tostring(L, lua_gettop(L)));
+        }
+    }
 }
