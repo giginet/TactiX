@@ -41,6 +41,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     CCScriptEngineManager::sharedManager()->setScriptEngine(pEngine);
 
     CCDirector::sharedDirector()->setDepthTest(false);
+    CCDirector::sharedDirector()->setProjection(kCCDirectorProjection2D);
     
     // Pathの設定
     // ToDo あとでLuaからincludeできるようにする
