@@ -93,6 +93,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		073DC4F917648758003615A6 /* LuaObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LuaObject.cpp; path = Lua/LuaObject.cpp; sourceTree = "<group>"; };
+		073DC4FA17648758003615A6 /* LuaObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LuaObject.h; path = Lua/LuaObject.h; sourceTree = "<group>"; };
 		077C41321759101600024FE7 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = ../../libs/cocos2dx/proj.ios/cocos2dx.xcodeproj; sourceTree = "<group>"; };
 		077C41381759105700024FE7 /* TactiX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TactiX-Info.plist"; sourceTree = SOURCE_ROOT; };
 		077C41601759151A00024FE7 /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
@@ -240,6 +242,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		073DC4F717648737003615A6 /* Lua */ = {
+			isa = PBXGroup;
+			children = (
+				073DC4F917648758003615A6 /* LuaObject.cpp */,
+				073DC4FA17648758003615A6 /* LuaObject.h */,
+			);
+			name = Lua;
+			sourceTree = "<group>";
+		};
 		077C41331759101600024FE7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +509,7 @@
 		BF23D4E2143315EB00657E08 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				073DC4F717648737003615A6 /* Lua */,
 				BF23D4E3143315EB00657E08 /* AppDelegate.cpp */,
 				BF23D4E4143315EB00657E08 /* AppDelegate.h */,
 			);
@@ -689,6 +701,7 @@
 					"\"$(SRCROOT)/../../libs/cocos2dx/platform/ios\"",
 					"\"$(SRCROOT)/../../libs/cocos2dx/kazmath/include\"",
 					"$(SRCROOT)/../../libs/external/chipmunk/include/chipmunk",
+					/usr/local/include/boost,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/TactiX-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
@@ -729,6 +742,7 @@
 					"\"$(SRCROOT)/../../libs/cocos2dx/platform/ios\"",
 					"\"$(SRCROOT)/../../libs/cocos2dx/kazmath/include\"",
 					"$(SRCROOT)/../../libs/external/chipmunk/include/chipmunk",
+					/usr/local/include/boost,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/TactiX-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
