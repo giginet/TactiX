@@ -16,7 +16,7 @@
 		073DC51A1764C3E7003615A6 /* menu1.png in Resources */ = {isa = PBXBuildFile; fileRef = 073DC5071764C3E7003615A6 /* menu1.png */; };
 		073DC51B1764C3E7003615A6 /* menu2.png in Resources */ = {isa = PBXBuildFile; fileRef = 073DC5081764C3E7003615A6 /* menu2.png */; };
 		073DC51C1764C3E7003615A6 /* desert.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 073DC50A1764C3E7003615A6 /* desert.tsx */; };
-		073DC51D1764C3E7003615A6 /* sample.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 073DC50B1764C3E7003615A6 /* sample.tmx */; };
+		073DC51D1764C3E7003615A6 /* desert.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 073DC50B1764C3E7003615A6 /* desert.tmx */; };
 		073DC51E1764C3E7003615A6 /* tmw_desert_spacing.png in Resources */ = {isa = PBXBuildFile; fileRef = 073DC50C1764C3E7003615A6 /* tmw_desert_spacing.png */; };
 		073DC51F1764C3E7003615A6 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 073DC50E1764C3E7003615A6 /* background.mp3 */; };
 		073DC5201764C3E7003615A6 /* background.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 073DC50F1764C3E7003615A6 /* background.ogg */; };
@@ -24,6 +24,8 @@
 		073DC5221764C3E7003615A6 /* hello2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 073DC5121764C3E7003615A6 /* hello2.lua */; };
 		073DC5231764C3E7003615A6 /* title.lua in Resources */ = {isa = PBXBuildFile; fileRef = 073DC5131764C3E7003615A6 /* title.lua */; };
 		073DC5241764C3E7003615A6 /* effect1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 073DC5151764C3E7003615A6 /* effect1.wav */; };
+		073DC5261764CA2D003615A6 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 073DC5251764CA2D003615A6 /* main.lua */; };
+		073DC52A1764CD3D003615A6 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073DC5281764CD3D003615A6 /* MainScene.cpp */; };
 		077C41391759105700024FE7 /* TactiX-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 077C41381759105700024FE7 /* TactiX-Info.plist */; };
 		077C413A175910E600024FE7 /* libcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077C41371759101600024FE7 /* libcocos2dx.a */; };
 		077C41CD1759151A00024FE7 /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 077C41611759151A00024FE7 /* CDAudioManager.m */; };
@@ -121,7 +123,7 @@
 		073DC5071764C3E7003615A6 /* menu1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu1.png; sourceTree = "<group>"; };
 		073DC5081764C3E7003615A6 /* menu2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu2.png; sourceTree = "<group>"; };
 		073DC50A1764C3E7003615A6 /* desert.tsx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = desert.tsx; sourceTree = "<group>"; };
-		073DC50B1764C3E7003615A6 /* sample.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sample.tmx; sourceTree = "<group>"; };
+		073DC50B1764C3E7003615A6 /* desert.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = desert.tmx; sourceTree = "<group>"; };
 		073DC50C1764C3E7003615A6 /* tmw_desert_spacing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tmw_desert_spacing.png; sourceTree = "<group>"; };
 		073DC50E1764C3E7003615A6 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		073DC50F1764C3E7003615A6 /* background.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.ogg; sourceTree = "<group>"; };
@@ -129,6 +131,9 @@
 		073DC5121764C3E7003615A6 /* hello2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hello2.lua; sourceTree = "<group>"; };
 		073DC5131764C3E7003615A6 /* title.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = title.lua; sourceTree = "<group>"; };
 		073DC5151764C3E7003615A6 /* effect1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = effect1.wav; sourceTree = "<group>"; };
+		073DC5251764CA2D003615A6 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
+		073DC5281764CD3D003615A6 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainScene.cpp; path = Scene/MainScene.cpp; sourceTree = "<group>"; };
+		073DC52B1764CD82003615A6 /* MainScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = include/MainScene.h; sourceTree = "<group>"; };
 		077C41321759101600024FE7 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = ../../libs/cocos2dx/proj.ios/cocos2dx.xcodeproj; sourceTree = "<group>"; };
 		077C41381759105700024FE7 /* TactiX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TactiX-Info.plist"; sourceTree = SOURCE_ROOT; };
 		077C41601759151A00024FE7 /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
@@ -316,7 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				073DC50A1764C3E7003615A6 /* desert.tsx */,
-				073DC50B1764C3E7003615A6 /* sample.tmx */,
+				073DC50B1764C3E7003615A6 /* desert.tmx */,
 				073DC50C1764C3E7003615A6 /* tmw_desert_spacing.png */,
 			);
 			path = Map;
@@ -335,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				073DC5111764C3E7003615A6 /* hello.lua */,
+				073DC5251764CA2D003615A6 /* main.lua */,
 				073DC5121764C3E7003615A6 /* hello2.lua */,
 				073DC5131764C3E7003615A6 /* title.lua */,
 			);
@@ -347,6 +353,15 @@
 				073DC5151764C3E7003615A6 /* effect1.wav */,
 			);
 			path = SE;
+			sourceTree = "<group>";
+		};
+		073DC5271764CCD5003615A6 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				073DC52B1764CD82003615A6 /* MainScene.h */,
+				073DC5281764CD3D003615A6 /* MainScene.cpp */,
+			);
+			name = Scene;
 			sourceTree = "<group>";
 		};
 		077C41331759101600024FE7 /* Products */ = {
@@ -607,6 +622,7 @@
 		BF23D4E2143315EB00657E08 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				073DC5271764CCD5003615A6 /* Scene */,
 				073DC4F717648737003615A6 /* Lua */,
 				BF23D4E3143315EB00657E08 /* AppDelegate.cpp */,
 				BF23D4E4143315EB00657E08 /* AppDelegate.h */,
@@ -710,7 +726,7 @@
 				073DC51A1764C3E7003615A6 /* menu1.png in Resources */,
 				073DC51B1764C3E7003615A6 /* menu2.png in Resources */,
 				073DC51C1764C3E7003615A6 /* desert.tsx in Resources */,
-				073DC51D1764C3E7003615A6 /* sample.tmx in Resources */,
+				073DC51D1764C3E7003615A6 /* desert.tmx in Resources */,
 				073DC51E1764C3E7003615A6 /* tmw_desert_spacing.png in Resources */,
 				073DC51F1764C3E7003615A6 /* background.mp3 in Resources */,
 				073DC5201764C3E7003615A6 /* background.ogg in Resources */,
@@ -718,6 +734,7 @@
 				073DC5221764C3E7003615A6 /* hello2.lua in Resources */,
 				073DC5231764C3E7003615A6 /* title.lua in Resources */,
 				073DC5241764C3E7003615A6 /* effect1.wav in Resources */,
+				073DC5261764CA2D003615A6 /* main.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,6 +800,7 @@
 				077C43F31759157A00024FE7 /* tolua_push.c in Sources */,
 				077C43F41759157A00024FE7 /* tolua_to.c in Sources */,
 				073DC4FD1764AA14003615A6 /* LuaScene.cpp in Sources */,
+				073DC52A1764CD3D003615A6 /* MainScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

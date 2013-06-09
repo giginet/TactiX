@@ -4,6 +4,7 @@
 #include "script_support/CCScriptSupport.h"
 #include "CCLuaEngine.h"
 #include "LuaScene.h"
+#include "MainScene.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -49,7 +50,10 @@ bool AppDelegate::applicationDidFinishLaunching()
     paths.push_back("Map");
     CCFileUtils::sharedFileUtils()->setSearchPaths(paths);
 
-    CCScene *scene = LuaScene::createScene("title.lua");
+    CCScene *scene = CCScene::create();
+    MainScene *layer = new MainScene();
+    layer->autorelease();
+    scene->addChild(layer);
     CCDirector::sharedDirector()->runWithScene(scene);
     
     return true;

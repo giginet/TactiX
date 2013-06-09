@@ -6,6 +6,7 @@ TactiX/proj.ios/TactiX.xcodeproj/xcuserdata/*.xcuserdatad/xcschemes/xcschememana
 TactiX/proj.mac/TactiX.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/UserInterfaceState.xcuserstate
 libs/cocos2dx/proj.ios/cocos2dx.xcodeproj/xcuserdata/*.xcuserdatad/xcschemes/cocos2dx.xcscheme
 libs/cocos2dx/proj.ios/cocos2dx.xcodeproj/xcuserdata/*.xcuserdatad/xcschemes/xcschememanagement.plist
+libs/cocos2dx/proj.ios/cocos2dx.xcodeproj/xcuserdata/*
 
 # for Lua Development Tools
 .project
