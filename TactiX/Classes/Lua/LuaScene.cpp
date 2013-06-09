@@ -38,14 +38,17 @@ bool LuaScene::init() {
 }
 
 void LuaScene::onEnter() {
+    CCLayer::onEnter();
     _obj->getLuaEngineWithLoad()->getLuaStack()->executeGlobalFunction("onEnter");
 }
 
 void LuaScene::onExit() {
+    CCLayer::onExit();
     _obj->getLuaEngineWithLoad()->getLuaStack()->executeGlobalFunction("onExit");
 }
 
 void LuaScene::onEnterTransitionDidFinish() {
+    CCLayer::onExitTransitionDidStart();
     _obj->getLuaEngineWithLoad()->getLuaStack()->executeGlobalFunction("onEnterTransitionDidFinish");
 }
 

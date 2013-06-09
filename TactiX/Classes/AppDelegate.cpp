@@ -40,6 +40,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     CCLuaEngine* pEngine = CCLuaEngine::defaultEngine();
     CCScriptEngineManager::sharedManager()->setScriptEngine(pEngine);
 
+    CCDirector::sharedDirector()->setDepthTest(false);
+    
     // Pathの設定
     // ToDo あとでLuaからincludeできるようにする
     std::vector<std::string> paths;
