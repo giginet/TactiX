@@ -3,6 +3,7 @@
 #include "SimpleAudioEngine.h"
 #include "script_support/CCScriptSupport.h"
 #include "CCLuaEngine.h"
+#include "LuaScene.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -45,11 +46,12 @@ bool AppDelegate::applicationDidFinishLaunching()
     paths.push_back("Music");
     paths.push_back("Image");
     paths.push_back("SE");
+    paths.push_back("Map");
     CCFileUtils::sharedFileUtils()->setSearchPaths(paths);
 
-    std::string path = CCFileUtils::sharedFileUtils()->fullPathForFilename("hello.lua");
-    pEngine->executeScriptFile(path.c_str());
-
+    CCScene *scene = LuaScene::createScene("title.lua");
+    CCDirector::sharedDirector()->runWithScene(scene);
+    
     return true;
 }
 
