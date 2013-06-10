@@ -115,6 +115,7 @@
 		07A7A25F1765F8ED00FEEFDC /* title.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07A7A25E1765F8ED00FEEFDC /* title.lua */; };
 		07A7A2611765F8F500FEEFDC /* character0.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07A7A2601765F8F500FEEFDC /* character0.lua */; };
 		07A7A2631765FFF100FEEFDC /* LuaBind.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A7A2621765FFF100FEEFDC /* LuaBind.cpp */; };
+		07A7A2671766024700FEEFDC /* resource_path.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07A7A2661766024700FEEFDC /* resource_path.lua */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -334,6 +335,7 @@
 		07A7A2621765FFF100FEEFDC /* LuaBind.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LuaBind.cpp; sourceTree = "<group>"; };
 		07A7A2641765FFFB00FEEFDC /* LuaBind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LuaBind.h; path = include/LuaBind.h; sourceTree = "<group>"; };
 		07A7A265176600A800FEEFDC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = include/AppDelegate.h; sourceTree = "<group>"; };
+		07A7A2661766024700FEEFDC /* resource_path.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = resource_path.lua; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* TactiX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TactiX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -450,6 +452,7 @@
 				073DC5111764C3E7003615A6 /* hello.lua */,
 				073DC5251764CA2D003615A6 /* main.lua */,
 				073DC5121764C3E7003615A6 /* hello2.lua */,
+				07A7A2661766024700FEEFDC /* resource_path.lua */,
 			);
 			path = Script;
 			sourceTree = "<group>";
@@ -983,6 +986,7 @@
 				073DC7C51764ED95003615A6 /* Android.mk in Resources */,
 				07A7A25F1765F8ED00FEEFDC /* title.lua in Resources */,
 				07A7A2611765F8F500FEEFDC /* character0.lua in Resources */,
+				07A7A2671766024700FEEFDC /* resource_path.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

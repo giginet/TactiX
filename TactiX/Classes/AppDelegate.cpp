@@ -6,6 +6,7 @@
 #include "LuaScene.h"
 #include "MainScene.h"
 #include "LuaBind.h"
+#include "LuaObject.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -46,14 +47,14 @@ bool AppDelegate::applicationDidFinishLaunching()
     CCDirector::sharedDirector()->setProjection(kCCDirectorProjection2D);
     
     // Pathの設定
-    // ToDo あとでLuaからincludeできるようにする
-    std::vector<std::string> paths;
-    paths.push_back("Script");
-    paths.push_back("Music");
-    paths.push_back("Image");
-    paths.push_back("SE");
-    paths.push_back("Map");
-    CCFileUtils::sharedFileUtils()->setSearchPaths(paths);
+    CCFileUtils::sharedFileUtils()->addSearchPath("Script");
+    LuaObject *pathObj = LuaObject::create("resource_path");
+    shared_ptr<CCLuaValueArray> array = pathObj->getArray("pathes");
+    std::vector<std::string> pathes;
+    for (CCLuaValueArrayIterator it = array->begin(); it != array->end(); ++it) {
+        pathes.push_back(it->stringValue());
+    }
+    CCFileUtils::sharedFileUtils()->setSearchPaths(pathes);
 
     CCScene *scene = CCScene::create();
     MainScene *layer = new MainScene();
