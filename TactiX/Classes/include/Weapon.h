@@ -26,9 +26,10 @@ typedef enum {
  */
 class Weapon :public CCObject {
   private:
+    Weapon();
+  protected:
     /** 属性 **/
     WeaponType _type;
-    Weapon();
   public:
     virtual ~Weapon();
     

@@ -107,6 +107,9 @@
 		077C43F51759164E00024FE7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 781C33B51547F06B00633F88 /* AVFoundation.framework */; };
 		077C43F61759165C00024FE7 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 781C33B11547F06B00633F88 /* OpenAL.framework */; };
 		077C43F71759167600024FE7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 781C33B31547F06B00633F88 /* AudioToolbox.framework */; };
+		07A28EB11765D4DE00A56AF4 /* Sword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A28EAF1765D4DE00A56AF4 /* Sword.cpp */; };
+		07A28EB51765D62E00A56AF4 /* Bow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A28EB31765D62D00A56AF4 /* Bow.cpp */; };
+		07A28EB61765D62E00A56AF4 /* Spear.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A28EB41765D62D00A56AF4 /* Spear.cpp */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -310,6 +313,12 @@
 		077C43391759157900024FE7 /* tolua_map.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tolua_map.c; sourceTree = "<group>"; };
 		077C433A1759157900024FE7 /* tolua_push.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tolua_push.c; sourceTree = "<group>"; };
 		077C433B1759157900024FE7 /* tolua_to.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tolua_to.c; sourceTree = "<group>"; };
+		07A28EAF1765D4DE00A56AF4 /* Sword.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sword.cpp; path = Model/Sword.cpp; sourceTree = "<group>"; };
+		07A28EB31765D62D00A56AF4 /* Bow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bow.cpp; path = Model/Bow.cpp; sourceTree = "<group>"; };
+		07A28EB41765D62D00A56AF4 /* Spear.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Spear.cpp; path = Model/Spear.cpp; sourceTree = "<group>"; };
+		07A28EB71765D64A00A56AF4 /* Bow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Bow.h; path = include/Bow.h; sourceTree = "<group>"; };
+		07A28EB81765D64A00A56AF4 /* Spear.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Spear.h; path = include/Spear.h; sourceTree = "<group>"; };
+		07A28EB91765D6D200A56AF4 /* Sword.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Sword.h; path = include/Sword.h; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* TactiX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TactiX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -549,6 +558,12 @@
 				073DC81C1765A684003615A6 /* Weapon.h */,
 				073DC8181765A5C3003615A6 /* Unit.cpp */,
 				073DC81B1765A67F003615A6 /* Unit.h */,
+				07A28EB91765D6D200A56AF4 /* Sword.h */,
+				07A28EAF1765D4DE00A56AF4 /* Sword.cpp */,
+				07A28EB71765D64A00A56AF4 /* Bow.h */,
+				07A28EB81765D64A00A56AF4 /* Spear.h */,
+				07A28EB31765D62D00A56AF4 /* Bow.cpp */,
+				07A28EB41765D62D00A56AF4 /* Spear.cpp */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1018,6 +1033,9 @@
 				073DC7F31764ED95003615A6 /* CCTableViewCell.cpp in Sources */,
 				073DC8171765A5AB003615A6 /* Weapon.cpp in Sources */,
 				073DC81A1765A5C3003615A6 /* Unit.cpp in Sources */,
+				07A28EB11765D4DE00A56AF4 /* Sword.cpp in Sources */,
+				07A28EB51765D62E00A56AF4 /* Bow.cpp in Sources */,
+				07A28EB61765D62E00A56AF4 /* Spear.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
