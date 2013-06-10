@@ -22,7 +22,6 @@
 		073DC5201764C3E7003615A6 /* background.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 073DC50F1764C3E7003615A6 /* background.ogg */; };
 		073DC5211764C3E7003615A6 /* hello.lua in Resources */ = {isa = PBXBuildFile; fileRef = 073DC5111764C3E7003615A6 /* hello.lua */; };
 		073DC5221764C3E7003615A6 /* hello2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 073DC5121764C3E7003615A6 /* hello2.lua */; };
-		073DC5231764C3E7003615A6 /* title.lua in Resources */ = {isa = PBXBuildFile; fileRef = 073DC5131764C3E7003615A6 /* title.lua */; };
 		073DC5241764C3E7003615A6 /* effect1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 073DC5151764C3E7003615A6 /* effect1.wav */; };
 		073DC5261764CA2D003615A6 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 073DC5251764CA2D003615A6 /* main.lua */; };
 		073DC52A1764CD3D003615A6 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073DC5281764CD3D003615A6 /* MainScene.cpp */; };
@@ -52,6 +51,7 @@
 		073DC8111764EE2E003615A6 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 073DC8101764EE2E003615A6 /* libcurl.a */; };
 		073DC8171765A5AB003615A6 /* Weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073DC8151765A5AB003615A6 /* Weapon.cpp */; };
 		073DC81A1765A5C3003615A6 /* Unit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073DC8181765A5C3003615A6 /* Unit.cpp */; };
+		074B37DC1765F30300746CB0 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 074B37DA1765F30300746CB0 /* Character.cpp */; };
 		077C41391759105700024FE7 /* TactiX-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 077C41381759105700024FE7 /* TactiX-Info.plist */; };
 		077C413A175910E600024FE7 /* libcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077C41371759101600024FE7 /* libcocos2dx.a */; };
 		077C41CD1759151A00024FE7 /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 077C41611759151A00024FE7 /* CDAudioManager.m */; };
@@ -112,6 +112,8 @@
 		07A28EB61765D62E00A56AF4 /* Spear.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A28EB41765D62D00A56AF4 /* Spear.cpp */; };
 		07A28EBC1765D90300A56AF4 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A28EBA1765D90200A56AF4 /* Player.cpp */; };
 		07A28EBF1765D90F00A56AF4 /* Match.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A28EBD1765D90F00A56AF4 /* Match.cpp */; };
+		07A7A25F1765F8ED00FEEFDC /* title.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07A7A25E1765F8ED00FEEFDC /* title.lua */; };
+		07A7A2611765F8F500FEEFDC /* character0.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07A7A2601765F8F500FEEFDC /* character0.lua */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -160,7 +162,6 @@
 		073DC50F1764C3E7003615A6 /* background.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.ogg; sourceTree = "<group>"; };
 		073DC5111764C3E7003615A6 /* hello.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hello.lua; sourceTree = "<group>"; };
 		073DC5121764C3E7003615A6 /* hello2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hello2.lua; sourceTree = "<group>"; };
-		073DC5131764C3E7003615A6 /* title.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = title.lua; sourceTree = "<group>"; };
 		073DC5151764C3E7003615A6 /* effect1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = effect1.wav; sourceTree = "<group>"; };
 		073DC5251764CA2D003615A6 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
 		073DC5281764CD3D003615A6 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainScene.cpp; path = Scene/MainScene.cpp; sourceTree = "<group>"; };
@@ -219,6 +220,8 @@
 		073DC8181765A5C3003615A6 /* Unit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Unit.cpp; path = Model/Unit.cpp; sourceTree = "<group>"; };
 		073DC81B1765A67F003615A6 /* Unit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Unit.h; path = include/Unit.h; sourceTree = "<group>"; };
 		073DC81C1765A684003615A6 /* Weapon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Weapon.h; path = include/Weapon.h; sourceTree = "<group>"; };
+		074B37DA1765F30300746CB0 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Character.cpp; path = Model/Character.cpp; sourceTree = "<group>"; };
+		074B37DE1765F33300746CB0 /* Character.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Character.h; path = include/Character.h; sourceTree = "<group>"; };
 		077C41321759101600024FE7 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = ../../libs/cocos2dx/proj.ios/cocos2dx.xcodeproj; sourceTree = "<group>"; };
 		077C41381759105700024FE7 /* TactiX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TactiX-Info.plist"; sourceTree = SOURCE_ROOT; };
 		077C41601759151A00024FE7 /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
@@ -325,6 +328,8 @@
 		07A28EBD1765D90F00A56AF4 /* Match.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Match.cpp; path = Model/Match.cpp; sourceTree = "<group>"; };
 		07A28EC01765D95200A56AF4 /* Match.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Match.h; path = include/Match.h; sourceTree = "<group>"; };
 		07A28EC11765D95800A56AF4 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Player.h; path = include/Player.h; sourceTree = "<group>"; };
+		07A7A25E1765F8ED00FEEFDC /* title.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = title.lua; path = Scene/title.lua; sourceTree = "<group>"; };
+		07A7A2601765F8F500FEEFDC /* character0.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = character0.lua; path = Character/character0.lua; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* TactiX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TactiX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -435,10 +440,11 @@
 		073DC5101764C3E7003615A6 /* Script */ = {
 			isa = PBXGroup;
 			children = (
+				07A7A25D1765F8E100FEEFDC /* Character */,
+				07A7A25C1765F8DB00FEEFDC /* Scene */,
 				073DC5111764C3E7003615A6 /* hello.lua */,
 				073DC5251764CA2D003615A6 /* main.lua */,
 				073DC5121764C3E7003615A6 /* hello2.lua */,
-				073DC5131764C3E7003615A6 /* title.lua */,
 			);
 			path = Script;
 			sourceTree = "<group>";
@@ -574,6 +580,8 @@
 				073DC81B1765A67F003615A6 /* Unit.h */,
 				073DC8151765A5AB003615A6 /* Weapon.cpp */,
 				073DC81C1765A684003615A6 /* Weapon.h */,
+				074B37DA1765F30300746CB0 /* Character.cpp */,
+				074B37DE1765F33300746CB0 /* Character.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -776,6 +784,22 @@
 			path = tolua;
 			sourceTree = "<group>";
 		};
+		07A7A25C1765F8DB00FEEFDC /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				07A7A25E1765F8ED00FEEFDC /* title.lua */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		07A7A25D1765F8E100FEEFDC /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				07A7A2601765F8F500FEEFDC /* character0.lua */,
+			);
+			name = Character;
+			sourceTree = "<group>";
+		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -949,10 +973,11 @@
 				073DC5201764C3E7003615A6 /* background.ogg in Resources */,
 				073DC5211764C3E7003615A6 /* hello.lua in Resources */,
 				073DC5221764C3E7003615A6 /* hello2.lua in Resources */,
-				073DC5231764C3E7003615A6 /* title.lua in Resources */,
 				073DC5241764C3E7003615A6 /* effect1.wav in Resources */,
 				073DC5261764CA2D003615A6 /* main.lua in Resources */,
 				073DC7C51764ED95003615A6 /* Android.mk in Resources */,
+				07A7A25F1765F8ED00FEEFDC /* title.lua in Resources */,
+				07A7A2611765F8F500FEEFDC /* character0.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,6 +1073,7 @@
 				07A28EB61765D62E00A56AF4 /* Spear.cpp in Sources */,
 				07A28EBC1765D90300A56AF4 /* Player.cpp in Sources */,
 				07A28EBF1765D90F00A56AF4 /* Match.cpp in Sources */,
+				074B37DC1765F30300746CB0 /* Character.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

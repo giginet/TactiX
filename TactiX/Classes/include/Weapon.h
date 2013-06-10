@@ -21,6 +21,13 @@ typedef enum {
     WeaponTypeWood
 } WeaponType;
 
+typedef enum {
+    WeaponKindNone,
+    WeaponKindSword,
+    WeaponKindSpear,
+    WeaponKindBow
+} WeaponKind;
+
 /**
  武器を定義する抽象クラスです
  */
