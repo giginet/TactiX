@@ -32,9 +32,8 @@ typedef enum {
  武器を定義する抽象クラスです
  */
 class Weapon :public CCObject {
-  private:
-    Weapon();
   protected:
+    Weapon();
     /** 属性 **/
     WeaponType _type;
   public:

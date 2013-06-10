@@ -8,6 +8,9 @@
 
 #include "Bow.h"
 
+Bow::Bow() {
+}
+
 bool Bow::canAttack(cocos2d::CCPoint relPos) {
     return true;
 }

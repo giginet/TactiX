@@ -1,10 +1,11 @@
+print("testhoge")
 return {
   pathes = {
     "Script",
     "Music",
     "Image",
     "SE",
-    "Map",
+    "Resources/Map",
     "Script/Scene",
     "Script/Character"
   }

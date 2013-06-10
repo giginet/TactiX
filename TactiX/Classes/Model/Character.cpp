@@ -13,13 +13,15 @@
 #include "Spear.h"
 #include <boost/shared_ptr.hpp>
 
+using namespace boost;
+
 Character::Character(const char *characterName) :_name("") {
     _lua = LuaObject::create(characterName);
     _lua->retain();
     _name = _lua->getString("name");
     _defaultWeapons = CCArray::create();
     _defaultWeapons->retain();
-    shared_ptr<CCLuaValueArray> array = _lua->getArray("defaultWeapons");
+    boost::shared_ptr<CCLuaValueArray> array = _lua->getArray("defaultWeapons");
     for (CCLuaValueArrayIterator it = array->begin(); it != array->end(); ++it) {
         CCLuaValueArray weaponInfo = it->arrayValue();
         int i = 0;

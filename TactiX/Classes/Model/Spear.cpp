@@ -8,6 +8,9 @@
 
 #include "Spear.h"
 
+Spear::Spear() {
+}
+
 bool Spear::canAttack(cocos2d::CCPoint relPos) {
     return true;
 }

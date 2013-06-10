@@ -121,29 +121,29 @@ const void* LuaObject::getObject(const char *key) {
     return result;
 }
 
-shared_ptr<CCLuaValueDict> LuaObject::getTable() {
+boost::shared_ptr<CCLuaValueDict> LuaObject::getTable() {
     lua_State* L = _engine->getLuaStack()->getLuaState();
     this->loadTable();
-    shared_ptr<CCLuaValueDict> dict = recursivelyLoadTable(lua_gettop(L));
+    boost::shared_ptr<CCLuaValueDict> dict = recursivelyLoadTable(lua_gettop(L));
     lua_pop(L, 1);
     return dict;
 }
 
-shared_ptr<CCLuaValueDict> LuaObject::getTable(const char* key) {
+boost::shared_ptr<CCLuaValueDict> LuaObject::getTable(const char* key) {
     this->loadTable();
     lua_State* L = _engine->getLuaStack()->getLuaState();
     int table = lua_gettop(L);
     lua_getfield(L, table, key);
-    shared_ptr<CCLuaValueDict> dict = recursivelyLoadTable(lua_gettop(L));
+    boost::shared_ptr<CCLuaValueDict> dict = recursivelyLoadTable(lua_gettop(L));
     lua_pop(L, 1);
     return dict;
 }
 
-shared_ptr<CCLuaValueArray> LuaObject::getArray() {
+boost::shared_ptr<CCLuaValueArray> LuaObject::getArray() {
     return LuaObject::luaTableToArray(this->getTable());
 }
 
-shared_ptr<CCLuaValueArray> LuaObject::getArray(const char *key) {
+boost::shared_ptr<CCLuaValueArray> LuaObject::getArray(const char *key) {
     return LuaObject::luaTableToArray(this->getTable(key));
 }
 
@@ -169,7 +169,7 @@ float LuaObject::getFloatFromTable(lua_State* state, int index) {
     return f;
 }
 
-void LuaObject::internalLoadSubTableWithKey(string key, lua_State* state, shared_ptr<CCLuaValueDict> dict){
+void LuaObject::internalLoadSubTableWithKey(string key, lua_State* state, boost::shared_ptr<CCLuaValueDict> dict){
     // check if the table contains a "magic marker"
     lua_getfield(state, -1, "structType");
     int structType = (int)lua_tointeger(state, -1);
@@ -218,10 +218,10 @@ void LuaObject::internalLoadSubTableWithKey(string key, lua_State* state, shared
     }*/
 }
 
-shared_ptr<CCLuaValueDict> LuaObject::recursivelyLoadTable(int index) {
+boost::shared_ptr<CCLuaValueDict> LuaObject::recursivelyLoadTable(int index) {
     lua_State* state = this->getLuaEngine()->getLuaStack()->getLuaState();
     string error = "";
-    shared_ptr<CCLuaValueDict> dict = shared_ptr<CCLuaValueDict>(new CCLuaValueDict());
+    boost::shared_ptr<CCLuaValueDict> dict = boost::shared_ptr<CCLuaValueDict>(new CCLuaValueDict());
     if (lua_istable(state, index)) {
         lua_pushnil(state); // first key
         while (lua_next(state, -2) != 0) {
@@ -270,9 +270,9 @@ shared_ptr<CCLuaValueDict> LuaObject::recursivelyLoadTable(int index) {
     return dict;
 }
 
-shared_ptr<CCLuaValueDict> LuaObject::loadLuaTableFromFile(const char* scriptName) {
+boost::shared_ptr<CCLuaValueDict> LuaObject::loadLuaTableFromFile(const char* scriptName) {
     LuaObject* obj = LuaObject::create(scriptName);
-    shared_ptr<CCLuaValueDict> dict;
+    boost::shared_ptr<CCLuaValueDict> dict;
     string path = CCFileUtils::sharedFileUtils()->fullPathForFilename(scriptName);
     obj->getLuaEngine()->executeScriptFile(path.c_str());
     
@@ -290,8 +290,8 @@ shared_ptr<CCLuaValueDict> LuaObject::loadLuaTableFromFile(const char* scriptNam
     return dict;
 }
 
-shared_ptr<CCLuaValueArray> LuaObject::luaTableToArray(shared_ptr<CCLuaValueDict> dict) {
-    shared_ptr<CCLuaValueArray> array = shared_ptr<CCLuaValueArray>(new CCLuaValueArray());
+boost::shared_ptr<CCLuaValueArray> LuaObject::luaTableToArray(boost::shared_ptr<CCLuaValueDict> dict) {
+    boost::shared_ptr<CCLuaValueArray> array = boost::shared_ptr<CCLuaValueArray>(new CCLuaValueArray());
     for (int i = 1; i <= dict->size(); ++i) {
         array->push_back((*dict)[boost::lexical_cast<string>(i)]);
     }

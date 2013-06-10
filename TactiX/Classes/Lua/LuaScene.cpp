@@ -22,7 +22,7 @@ CCScene * LuaScene::createScene(const char *filename) {
 }
 
 LuaScene::LuaScene(const char *filename) {
-    _obj = shared_ptr<LuaObject>(new LuaObject(filename));
+    _obj = boost::shared_ptr<LuaObject>(new LuaObject(filename));
     this->scheduleUpdate();
 }
 

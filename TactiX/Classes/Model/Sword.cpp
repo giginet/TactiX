@@ -8,6 +8,9 @@
 
 #include "Sword.h"
 
+Sword::Sword() {
+}
+
 bool Sword::canAttack(cocos2d::CCPoint relPos) {
     return true;
 }

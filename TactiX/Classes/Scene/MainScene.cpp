@@ -6,7 +6,10 @@
 //
 //
 
+#include "cocos-ext.h"
 #include "MainScene.h"
+
+using namespace cocos2d::extension;
 
 MainScene::MainScene() :LuaScene("main.lua") {
     _scrollView = CCScrollView::create();

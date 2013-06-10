@@ -25,8 +25,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     // create the application instance
     AppDelegate app;
     CCEGLView* eglView = CCEGLView::sharedOpenGLView();
-    eglView->setViewName("HelloLua");
-    eglView->setFrameSize(480, 320);
+    eglView->setViewName("TactiX");
+    eglView->setFrameSize(720, 960);
     int ret = CCApplication::sharedApplication()->run();
 
 #ifdef USE_WIN32_CONSOLE
