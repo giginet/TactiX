@@ -41,7 +41,6 @@ void MainScene::onEnter() {
 #pragma mark CCScrollViewDelegate
 
 void MainScene::scrollViewDidScroll(cocos2d::extension::CCScrollView *view) {
-    CCLog("exp");
 }
 
 void MainScene::scrollViewDidZoom(cocos2d::extension::CCScrollView *view) {
