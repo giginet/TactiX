@@ -14,8 +14,6 @@
 using namespace std;
 using namespace cocos2d;
 
-//bool LuaObject::isInitialized = false;
-
 typedef enum {
     kStructType_INVALID = 0,
     kStructTypePoint,

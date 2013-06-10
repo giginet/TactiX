@@ -5,6 +5,7 @@
 #include "CCLuaEngine.h"
 #include "LuaScene.h"
 #include "MainScene.h"
+#include "LuaBind.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -39,6 +40,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     // register lua engine
     CCLuaEngine* pEngine = CCLuaEngine::defaultEngine();
     CCScriptEngineManager::sharedManager()->setScriptEngine(pEngine);
+    tolua_TactiX_open(pEngine->getLuaStack()->getLuaState());
 
     CCDirector::sharedDirector()->setDepthTest(false);
     CCDirector::sharedDirector()->setProjection(kCCDirectorProjection2D);

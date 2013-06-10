@@ -114,6 +114,7 @@
 		07A28EBF1765D90F00A56AF4 /* Match.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A28EBD1765D90F00A56AF4 /* Match.cpp */; };
 		07A7A25F1765F8ED00FEEFDC /* title.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07A7A25E1765F8ED00FEEFDC /* title.lua */; };
 		07A7A2611765F8F500FEEFDC /* character0.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07A7A2601765F8F500FEEFDC /* character0.lua */; };
+		07A7A2631765FFF100FEEFDC /* LuaBind.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A7A2621765FFF100FEEFDC /* LuaBind.cpp */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -330,6 +331,9 @@
 		07A28EC11765D95800A56AF4 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Player.h; path = include/Player.h; sourceTree = "<group>"; };
 		07A7A25E1765F8ED00FEEFDC /* title.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = title.lua; path = Scene/title.lua; sourceTree = "<group>"; };
 		07A7A2601765F8F500FEEFDC /* character0.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = character0.lua; path = Character/character0.lua; sourceTree = "<group>"; };
+		07A7A2621765FFF100FEEFDC /* LuaBind.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LuaBind.cpp; sourceTree = "<group>"; };
+		07A7A2641765FFFB00FEEFDC /* LuaBind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LuaBind.h; path = include/LuaBind.h; sourceTree = "<group>"; };
+		07A7A265176600A800FEEFDC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = include/AppDelegate.h; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* TactiX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TactiX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -339,7 +343,6 @@
 		781C33B51547F06B00633F88 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BF137426128A8E4600D9F789 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BF23D4E3143315EB00657E08 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
-		BF23D4E4143315EB00657E08 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF365AA612A103F70050DCF4 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		BF365AA712A103F70050DCF4 /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
 		BF492B6912891AC600A09262 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -388,6 +391,8 @@
 				073DC4FA17648758003615A6 /* LuaObject.h */,
 				073DC4FB1764AA14003615A6 /* LuaScene.cpp */,
 				073DC4FC1764AA14003615A6 /* LuaScene.h */,
+				07A7A2621765FFF100FEEFDC /* LuaBind.cpp */,
+				07A7A2641765FFFB00FEEFDC /* LuaBind.h */,
 			);
 			name = Lua;
 			sourceTree = "<group>";
@@ -866,7 +871,7 @@
 				073DC5271764CCD5003615A6 /* Scene */,
 				073DC4F717648737003615A6 /* Lua */,
 				BF23D4E3143315EB00657E08 /* AppDelegate.cpp */,
-				BF23D4E4143315EB00657E08 /* AppDelegate.h */,
+				07A7A265176600A800FEEFDC /* AppDelegate.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -1074,6 +1079,7 @@
 				07A28EBC1765D90300A56AF4 /* Player.cpp in Sources */,
 				07A28EBF1765D90F00A56AF4 /* Match.cpp in Sources */,
 				074B37DC1765F30300746CB0 /* Character.cpp in Sources */,
+				07A7A2631765FFF100FEEFDC /* LuaBind.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,16 @@
+$#include "LuaCocos2d.h"
+$#include "Weapon.h"
+
+enum WeaponKind {
+	WeaponKindNone,
+	WeaponKindSword,
+	WeaponKindSpear,
+	WeaponKindBow
+};
+
+enum WeaponType {
+	WeaponTypeNone,
+	WeaponTypeFire,
+	WeaponTypeWater,
+	WeaponTypeWood
+};
