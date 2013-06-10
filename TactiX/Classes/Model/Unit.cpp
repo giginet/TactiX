@@ -8,7 +8,7 @@
 
 #include "Unit.h"
 
-Unit::Unit() {
+Unit::Unit(const char *characterName) {
     _weapons = CCArray::create();
     _weapons->retain();
 }
@@ -44,6 +44,7 @@ void Unit::setWeapons(cocos2d::CCArray *weapons) {
         _weapons->release();
     }
     _weapons = weapons;
+    CCAssert(weapons && weapons->count() == 3, "a length of weapons must be 3.");
     if (weapons) {
         weapons->retain();
     }
