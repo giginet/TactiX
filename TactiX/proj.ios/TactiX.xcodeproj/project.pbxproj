@@ -50,6 +50,8 @@
 		073DC7F21764ED95003615A6 /* CCTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073DC7851764ED95003615A6 /* CCTableView.cpp */; };
 		073DC7F31764ED95003615A6 /* CCTableViewCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073DC7871764ED95003615A6 /* CCTableViewCell.cpp */; };
 		073DC8111764EE2E003615A6 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 073DC8101764EE2E003615A6 /* libcurl.a */; };
+		073DC8171765A5AB003615A6 /* Weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073DC8151765A5AB003615A6 /* Weapon.cpp */; };
+		073DC81A1765A5C3003615A6 /* Unit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073DC8181765A5C3003615A6 /* Unit.cpp */; };
 		077C41391759105700024FE7 /* TactiX-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 077C41381759105700024FE7 /* TactiX-Info.plist */; };
 		077C413A175910E600024FE7 /* libcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077C41371759101600024FE7 /* libcocos2dx.a */; };
 		077C41CD1759151A00024FE7 /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 077C41611759151A00024FE7 /* CDAudioManager.m */; };
@@ -208,6 +210,10 @@
 		073DC7871764ED95003615A6 /* CCTableViewCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCTableViewCell.cpp; sourceTree = "<group>"; };
 		073DC7881764ED95003615A6 /* CCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCell.h; sourceTree = "<group>"; };
 		073DC8101764EE2E003615A6 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../libs/cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
+		073DC8151765A5AB003615A6 /* Weapon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Weapon.cpp; path = Model/Weapon.cpp; sourceTree = "<group>"; };
+		073DC8181765A5C3003615A6 /* Unit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Unit.cpp; path = Model/Unit.cpp; sourceTree = "<group>"; };
+		073DC81B1765A67F003615A6 /* Unit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Unit.h; path = include/Unit.h; sourceTree = "<group>"; };
+		073DC81C1765A684003615A6 /* Weapon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Weapon.h; path = include/Weapon.h; sourceTree = "<group>"; };
 		077C41321759101600024FE7 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = ../../libs/cocos2dx/proj.ios/cocos2dx.xcodeproj; sourceTree = "<group>"; };
 		077C41381759105700024FE7 /* TactiX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TactiX-Info.plist"; sourceTree = SOURCE_ROOT; };
 		077C41601759151A00024FE7 /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
@@ -536,6 +542,17 @@
 			path = CCScrollView;
 			sourceTree = "<group>";
 		};
+		073DC8131765A594003615A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				073DC8151765A5AB003615A6 /* Weapon.cpp */,
+				073DC81C1765A684003615A6 /* Weapon.h */,
+				073DC8181765A5C3003615A6 /* Unit.cpp */,
+				073DC81B1765A67F003615A6 /* Unit.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		077C41331759101600024FE7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,6 +813,7 @@
 		BF23D4E2143315EB00657E08 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				073DC8131765A594003615A6 /* Model */,
 				073DC5271764CCD5003615A6 /* Scene */,
 				073DC4F717648737003615A6 /* Lua */,
 				BF23D4E3143315EB00657E08 /* AppDelegate.cpp */,
@@ -998,6 +1016,8 @@
 				073DC7F11764ED95003615A6 /* CCSorting.cpp in Sources */,
 				073DC7F21764ED95003615A6 /* CCTableView.cpp in Sources */,
 				073DC7F31764ED95003615A6 /* CCTableViewCell.cpp in Sources */,
+				073DC8171765A5AB003615A6 /* Weapon.cpp in Sources */,
+				073DC81A1765A5C3003615A6 /* Unit.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
