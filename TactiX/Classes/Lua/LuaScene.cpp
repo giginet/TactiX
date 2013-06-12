@@ -31,7 +31,15 @@ LuaScene::~LuaScene() {
 
 bool LuaScene::init() {
     if (CCLayer::init()) {
-        _obj->getLuaEngineWithLoad()->getLuaStack()->executeGlobalFunction("init");
+        CCLuaEngine *engine = _obj->getLuaEngineWithLoad();
+        lua_State *L = engine->getLuaStack()->getLuaState();
+        lua_getglobal(L, "init");
+        if (lua_isfunction(L, lua_gettop(L))) {
+            engine->getLuaStack()->pushCCObject(this, "CCLayer");
+            if (lua_pcall(L, 1, 0, 0)) {
+                CCLog("%s", lua_tostring(L, lua_gettop(L)));
+            }
+        }
         return true;
     }
     return false;
@@ -39,25 +47,51 @@ bool LuaScene::init() {
 
 void LuaScene::onEnter() {
     CCLayer::onEnter();
-    _obj->getLuaEngineWithLoad()->getLuaStack()->executeGlobalFunction("onEnter");
+    CCLuaEngine *engine = _obj->getLuaEngineWithLoad();
+    lua_State *L = engine->getLuaStack()->getLuaState();
+    lua_getglobal(L, "onEnter");
+    if (lua_isfunction(L, lua_gettop(L))) {
+        engine->getLuaStack()->pushCCObject(this, "CCLayer");
+        if (lua_pcall(L, 1, 0, 0)) {
+            CCLog("%s", lua_tostring(L, lua_gettop(L)));
+        }
+    }
 }
 
 void LuaScene::onExit() {
     CCLayer::onExit();
-    _obj->getLuaEngineWithLoad()->getLuaStack()->executeGlobalFunction("onExit");
+    CCLuaEngine *engine = _obj->getLuaEngineWithLoad();
+    lua_State *L = engine->getLuaStack()->getLuaState();
+    lua_getglobal(L, "onExit");
+    if (lua_isfunction(L, lua_gettop(L))) {
+        engine->getLuaStack()->pushCCObject(this, "CCLayer");
+        if (lua_pcall(L, 1, 0, 0)) {
+            CCLog("%s", lua_tostring(L, lua_gettop(L)));
+        }
+    }
 }
 
 void LuaScene::onEnterTransitionDidFinish() {
-    CCLayer::onExitTransitionDidStart();
-    _obj->getLuaEngineWithLoad()->getLuaStack()->executeGlobalFunction("onEnterTransitionDidFinish");
+    CCLayer::onEnterTransitionDidFinish();
+    CCLuaEngine *engine = _obj->getLuaEngineWithLoad();
+    lua_State *L = engine->getLuaStack()->getLuaState();
+    lua_getglobal(L, "onEnterTransitionDidFinish");
+    if (lua_isfunction(L, lua_gettop(L))) {
+        engine->getLuaStack()->pushCCObject(this, "CCLayer");
+        if (lua_pcall(L, 1, 0, 0)) {
+            CCLog("%s", lua_tostring(L, lua_gettop(L)));
+        }
+    }
 }
 
 void LuaScene::update(float dt) {
-    lua_State *L = _obj->getLuaEngineWithLoad()->getLuaStack()->getLuaState();
-    lua_getglobal(L, "update");
+    CCLuaEngine *engine = _obj->getLuaEngineWithLoad();
+    lua_State *L = engine->getLuaStack()->getLuaState();
+    lua_getglobal(L, "onEnterTransitionDidFinish");
     if (lua_isfunction(L, lua_gettop(L))) {
+        engine->getLuaStack()->pushCCObject(this, "CCLayer");
         lua_pushnumber(L, dt);
-        if (lua_pcall(L, 1, 0, 0)) {
+        if (lua_pcall(L, 2, 0, 0)) {
             CCLog("%s", lua_tostring(L, lua_gettop(L)));
         }
     }

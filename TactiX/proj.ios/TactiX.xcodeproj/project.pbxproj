@@ -116,6 +116,7 @@
 		07A7A2611765F8F500FEEFDC /* character0.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07A7A2601765F8F500FEEFDC /* character0.lua */; };
 		07A7A2631765FFF100FEEFDC /* LuaBind.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A7A2621765FFF100FEEFDC /* LuaBind.cpp */; };
 		07A7A2671766024700FEEFDC /* resource_path.lua in Resources */ = {isa = PBXBuildFile; fileRef = 07A7A2661766024700FEEFDC /* resource_path.lua */; };
+		07A7A26B17672B2900FEEFDC /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A7A26917672B2900FEEFDC /* Map.cpp */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -336,6 +337,8 @@
 		07A7A2641765FFFB00FEEFDC /* LuaBind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LuaBind.h; path = include/LuaBind.h; sourceTree = "<group>"; };
 		07A7A265176600A800FEEFDC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = include/AppDelegate.h; sourceTree = "<group>"; };
 		07A7A2661766024700FEEFDC /* resource_path.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = resource_path.lua; sourceTree = "<group>"; };
+		07A7A26917672B2900FEEFDC /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Map.cpp; path = Model/Map.cpp; sourceTree = "<group>"; };
+		07A7A26C17672B6000FEEFDC /* Map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Map.h; path = include/Map.h; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* TactiX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TactiX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -590,6 +593,8 @@
 				073DC81C1765A684003615A6 /* Weapon.h */,
 				074B37DA1765F30300746CB0 /* Character.cpp */,
 				074B37DE1765F33300746CB0 /* Character.h */,
+				07A7A26917672B2900FEEFDC /* Map.cpp */,
+				07A7A26C17672B6000FEEFDC /* Map.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1084,6 +1089,7 @@
 				07A28EBF1765D90F00A56AF4 /* Match.cpp in Sources */,
 				074B37DC1765F30300746CB0 /* Character.cpp in Sources */,
 				07A7A2631765FFF100FEEFDC /* LuaBind.cpp in Sources */,
+				07A7A26B17672B2900FEEFDC /* Map.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

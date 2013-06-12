@@ -31,44 +31,40 @@ bool AppDelegate::applicationDidFinishLaunching()
     pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
     
     CCEGLView::sharedOpenGLView()->setDesignResolutionSize(720, 960, kResolutionNoBorder);
-
+    
     // turn on display FPS
     pDirector->setDisplayStats(true);
-
+    
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
-
+    
     // register lua engine
-    CCLuaEngine* 
-        pEngine = CCLuaEngine::defaultEngine();
+    CCLuaEngine*
+    pEngine = CCLuaEngine::defaultEngine();
     CCScriptEngineManager::sharedManager()->setScriptEngine(pEngine);
     tolua_TactiX_open(pEngine->getLuaStack()->getLuaState());
-
+    
     CCDirector::sharedDirector()->setDepthTest(false);
     CCDirector::sharedDirector()->setProjection(kCCDirectorProjection2D);
     
     
     // Pathの設定
-        std::vector<std::string> paths;
-
-    paths.push_back("Script");
-
+    std::vector<std::string> paths;
+    paths.push_back("Script/Scene");
+    paths.push_back("Script/Character");
     paths.push_back("Music");
-
     paths.push_back("Image");
-
     paths.push_back("SE");
     paths.push_back("Map");
-
     CCFileUtils::sharedFileUtils()->setSearchPaths(paths);
-
+    
     /*LuaObject *pathObj = LuaObject::create("resource_path.lua");
-    boost::shared_ptr<CCLuaValueArray> array = pathObj->getArray("pathes");
-    std::vector<std ::string> pathes;
-    for (CCLuaValueArrayIterator it = array->begin(); it != array->end(); ++it) {
-        pathes.push_back(it->stringValue());
-    }
-    CCFileUtils::sharedFileUtils()->setSearchPaths(pathes);*/
+     boost::shared_ptr<CCLuaValueArray> array = pathObj->getArray("pathes");
+     std::vector<std ::string> pathes;
+     for (CCLuaValueArrayIterator it = array->begin(); it != array->end(); ++it) {
+     pathes.push_back(it->stringValue());
+     }
+     CCFileUtils::sharedFileUtils()->setSearchPaths(pathes);*/
     
     CCScene *scene = CCScene::create();
     MainScene *layer = new MainScene();

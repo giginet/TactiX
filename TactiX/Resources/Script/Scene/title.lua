@@ -1,20 +1,20 @@
 -- シーンの初期化時に一度だけ呼び出されます
-function init()
+function init(self)
 end
 
 -- シーンに入った時に一度だけ呼び出されます
-function onEnter()
+function onEnter(self)
 
 end
 
 -- トランジションが終わった直後に呼び出されます
-function onEnterTransitionDidFinish()
+function onEnterTransitionDidFinish(self)
 end
 
 -- 毎フレーム呼び出されます
-function update(dt)
+function update(self, dt)
 end
 
 -- シーンから出る時に一度だけ呼び出されます
-function onExit()
+function onExit(self)
 end
