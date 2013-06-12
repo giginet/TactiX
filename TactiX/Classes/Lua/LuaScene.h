@@ -22,6 +22,8 @@ using namespace boost;
 class LuaScene :public CCLayer {
 private:
     boost::shared_ptr<LuaObject> _obj;
+protected:
+    string _className;
 public:
     static LuaScene *create(const char *filename);
     static CCScene *createScene(const char *filename);

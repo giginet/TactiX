@@ -38,7 +38,7 @@ MainScene::~MainScene() {
 }
 
 void MainScene::onEnter() {
-    CCLayer::onEnter();
+    LuaScene::onEnter();
 }
 
 #pragma mark CCScrollViewDelegate
