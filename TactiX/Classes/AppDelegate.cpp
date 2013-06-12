@@ -50,6 +50,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     // Pathの設定
     std::vector<std::string> paths;
+	paths.push_back("Script");
     paths.push_back("Script/Scene");
     paths.push_back("Script/Character");
     paths.push_back("Music");
