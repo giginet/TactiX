@@ -13,10 +13,12 @@ Match *Match::_currentMatch = NULL;
 Match::Match() : _currentTurn(1) ,_currentPhase(0) {
     _players = CCArray::create();
     _players->retain();
+    _map = new Map("desert.tmx");
 }
 
 Match::~Match() {
     _players->release();
+    _map->release();
 }
 
 Match *Match::startMatch() {
@@ -52,4 +54,8 @@ void Match::endPhase() {
     if (_currentPhase == 0) {
         _currentTurn += 1;
     }
+}
+
+Map *Match::getMap() {
+    return _map;
 }

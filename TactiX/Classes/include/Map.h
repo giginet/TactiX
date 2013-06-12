@@ -11,9 +11,11 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "cocos-ext.h"
 
 using namespace std;
 using namespace cocos2d;
+using namespace cocos2d::extension;
 
 /**
  マップを表すクラスです
@@ -24,6 +26,8 @@ class Map :public CCNode {
     string _mapID;
     string _name;
     string _mapFilePath;
+    CCTMXTiledMap *_map;
+    CCScrollView *_scrollView;
   public:
     Map(const char *mapID);
     ~Map();

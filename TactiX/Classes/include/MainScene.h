@@ -12,6 +12,7 @@
 #include "LuaScene.h"
 #include "cocos2d.h"
 #include "cocos-ext.h"
+#include "Match.h"
 #include <iostream>
 
 using namespace cocos2d;
@@ -19,8 +20,7 @@ using namespace cocos2d::extension;
 
 class MainScene :public LuaScene, public CCScrollViewDelegate {
   private:
-    CCScrollView *_scrollView;
-    CCTMXTiledMap *_map;
+    Match *_match;
   public:
     MainScene();
     virtual ~MainScene();

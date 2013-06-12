@@ -12,6 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "Player.h"
+#include "Map.h"
 
 using namespace cocos2d;
 
@@ -32,6 +33,7 @@ class Match :public CCObject {
     int _currentPhase;
     /** 現在対戦中のプレイヤー **/
     CCArray *_players;
+    Map *_map;
   public:
     Match();
     ~Match();
@@ -76,6 +78,12 @@ class Match :public CCObject {
      今のフェーズを終了して、次のフェーズに移行します
      */
     void endPhase();
+    
+    /**
+     現在のマップオブジェクトを取り出します
+     @return マップオブジェクト
+     */
+    Map *getMap();
 };
 
 #endif /* defined(__TactiX__Match__) */
