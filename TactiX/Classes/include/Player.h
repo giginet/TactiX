@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "Unit.h"
 
 using namespace cocos2d;
 
@@ -22,6 +23,8 @@ class Player :public CCObject {
     Player(int playerID);
     ~Player();
     int getPlayerID();
+    CCArray *getUnits();
+    void addUnit(Unit *unit);
 };
 
 #endif /* defined(__TactiX__Player__) */

@@ -34,7 +34,11 @@ Map::~Map() {
 }
 
 CCPoint Map::convertToMapSpace(cocos2d::CCPoint worldSpacePoint) {
-    return CCPointZero;
+    CCPoint offset = _scrollView->getContentOffset();
+    CCSize size = _map->getTileSize();
+    int x = (int)((worldSpacePoint.x + offset.x) / size.width);
+    int y = (int)((worldSpacePoint.y + offset.y) / size.height);
+    return CCPointMake(x, y);
 }
 
 void Map::moveTo(cocos2d::CCPoint mapPoint) {
