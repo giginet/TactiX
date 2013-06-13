@@ -153,6 +153,8 @@
     <ClCompile Include="..\Classes\Model\Unit.cpp" />
     <ClCompile Include="..\Classes\Model\Weapon.cpp" />
     <ClCompile Include="..\Classes\Scene\MainScene.cpp" />
+    <ClCompile Include="..\Classes\Model\Map.cpp" />
+    <ClCompile Include="..\Classes\Model\Match.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +171,8 @@
     <ClInclude Include="..\Classes\include\Weapon.h" />
     <ClInclude Include="..\Classes\Lua\LuaObject.h" />
     <ClInclude Include="..\Classes\Lua\LuaScene.h" />
+    <ClCompile Include="..\Classes\include\Map.h" />
+    <ClCompile Include="..\Classes\include\Match.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

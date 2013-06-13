@@ -44,3 +44,11 @@ void Unit::setWeapons(cocos2d::CCArray *weapons) {
         weapons->retain();
     }
 }
+
+int Unit::getOwnerID() {
+    return _ownerID;
+}
+
+void Unit::setOwnerID(int ownerID) {
+    _ownerID = ownerID;
+}

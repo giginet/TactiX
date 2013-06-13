@@ -22,6 +22,8 @@ using namespace cocos2d;
  */
 class Unit :public CCSprite {
   private:
+    /** オーナー **/
+    int _ownerID;
     /** 移動力 **/
     int _moveCapacity;
     /** 装備中の武器 **/
@@ -63,6 +65,9 @@ class Unit :public CCSprite {
      @param 武器の一覧
      */
     void setWeapons(CCArray *weapons);
+    
+    int getOwnerID();
+    void setOwnerID(int ownerID);
 };
 
 #endif /* defined(__TactiX__Unit__) */

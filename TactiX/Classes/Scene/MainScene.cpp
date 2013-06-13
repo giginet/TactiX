@@ -21,7 +21,7 @@ MainScene::MainScene() :LuaScene("main.lua") {
     Unit *unit = new Unit("test");
     unit->autorelease();
     player0->addUnit(unit);
-    _match->getMap()->addUnit(unit, ccp(0, 0));
+    _match->getMap()->addUnit(unit, ccp(6, 6));
 }
 
 MainScene::~MainScene() {

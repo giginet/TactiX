@@ -26,5 +26,6 @@ CCArray *Player::getUnits() {
 }
 
 void Player::addUnit(Unit *unit) {
+    unit->setOwnerID(_playerID);
     _units->addObject(unit);
 }
