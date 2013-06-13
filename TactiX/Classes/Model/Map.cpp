@@ -18,6 +18,8 @@ Map::Map(const char *mapID) {
     _scrollView->setPosition(CCPointZero);
     _scrollView->setContentOffset(CCPointZero);
     
+    CCSize size = _map->getMapSize();
+    CCSize tile = _map->getTileSize();
     _scrollView->setContentSize(_map->getContentSize());
     
     _scrollView->setContainer(_map);
@@ -33,7 +35,7 @@ Map::~Map() {
     _scrollView->release();
 }
 
-CCPoint Map::convertToMapSpace(cocos2d::CCPoint worldSpacePoint) {
+CCPoint Map::convertToMapSpace(const cocos2d::CCPoint worldSpacePoint) {
     CCPoint offset = _scrollView->getContentOffset();
     CCSize size = _map->getTileSize();
     int x = (int)((worldSpacePoint.x + offset.x) / size.width);
@@ -41,10 +43,23 @@ CCPoint Map::convertToMapSpace(cocos2d::CCPoint worldSpacePoint) {
     return CCPointMake(x, y);
 }
 
-void Map::moveTo(cocos2d::CCPoint mapPoint) {
+CCPoint Map::convertToWorld(const CCPoint mapPoint) {
+    CCSize size = _map->getTileSize();
+    float x = size.width * (mapPoint.x + 0.5);
+    float y = size.height * (mapPoint.y + 0.5);
+    return CCPointMake(x, y);
 }
 
-CCSprite *Map::getTileAt(cocos2d::CCPoint mapPoint) {
+void Map::moveTo(const cocos2d::CCPoint mapPoint) {
+}
+
+CCSprite *Map::getTileAt(const cocos2d::CCPoint mapPoint) {
     CCTMXLayer *mapLayer = _map->layerNamed("Map");
     return mapLayer->tileAt(mapPoint);
+}
+
+void Map::addUnit(Unit *unit, const CCPoint mapPoint) {
+    CCPoint position = this->convertToWorld(mapPoint);
+    unit->setPosition(position);
+    _map->addChild(unit);
 }

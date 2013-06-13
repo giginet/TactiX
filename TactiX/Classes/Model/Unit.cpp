@@ -9,22 +9,17 @@
 #include "Unit.h"
 
 Unit::Unit(const char *characterName) {
-    _weapons = CCArray::create();
-    _weapons->retain();
+    if (this->initWithFile("unit.png")) {
+        _weapons = CCArray::create();
+        _weapons->retain();
+        
+    }
 }
 
 Unit::~Unit() {
     if (_weapons) {
         _weapons->release();
     }
-}
-
-CCPoint Unit::getMapPosition() {
-    return _mapPosition;
-}
-
-void Unit::setMapPosition(cocos2d::CCPoint position) {
-    _mapPosition = position;
 }
 
 int Unit::getMoveCapacity() {

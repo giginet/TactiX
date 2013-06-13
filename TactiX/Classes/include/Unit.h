@@ -20,12 +20,10 @@ using namespace cocos2d;
  マップ上のユニットを表現するクラスです
  キャラ情報などはCharacterクラスなどに委譲させるつもり
  */
-class Unit :public CCObject {
+class Unit :public CCSprite {
   private:
     /** 移動力 **/
     int _moveCapacity;
-    /** マップ上の現在座標 **/
-    CCPoint _mapPosition;
     /** 装備中の武器 **/
     CCArray *_weapons;
   public:
@@ -37,17 +35,7 @@ class Unit :public CCObject {
     
     virtual ~Unit();
     
-    /**
-     ユニットの現在のマップ上の位置を返します
-     @return 現在のマップ上の位置
-     */
-    CCPoint getMapPosition();
-    
-    /**
-     ユニットの現在のマップ上の位置を設定します
-     @param mapPosition 現在のマップ上の位置
-     */
-    void setMapPosition(CCPoint mapPosition);
+    static Unit *create(const char *characterName);
     
     /**
      このユニットの移動力を返します

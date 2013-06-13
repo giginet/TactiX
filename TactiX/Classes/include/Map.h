@@ -12,6 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "cocos-ext.h"
+#include "Unit.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -28,6 +29,7 @@ class Map :public CCNode {
     string _mapFilePath;
     CCTMXTiledMap *_map;
     CCScrollView *_scrollView;
+    CCPoint convertToWorld(const CCPoint mapPoint);
   public:
     Map(const char *mapID);
     ~Map();
@@ -37,7 +39,7 @@ class Map :public CCNode {
      @param worldSpacePoint グローバル座標
      @return マップ座標
      */
-    CCPoint convertToMapSpace(CCPoint worldSpacePoint);
+    CCPoint convertToMapSpace(const CCPoint worldSpacePoint);
     
     /**
      スクロールの中心が指定されたタイルの中心になるようにします
@@ -51,10 +53,15 @@ class Map :public CCNode {
      @param mapPoint マップ座標
      @return その座標のTileまたはNULL
      */
-    CCSprite *getTileAt(CCPoint mapPoint);
+    CCSprite *getTileAt(const CCPoint mapPoint);
     
-    
-    
+    /**
+     マップ上にUnitを配置します
+     @param unit 配置するUnit
+     @param mapLocation マップ座標
+     */
+    void addUnit(Unit *unit, const CCPoint mapPoint);
+
 };
 
 #endif /* defined(__TactiX__Map__) */

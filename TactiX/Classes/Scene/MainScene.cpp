@@ -15,6 +15,13 @@ MainScene::MainScene() :LuaScene("main.lua") {
     _match = Match::startMatch();
     _match->retain();
     this->addChild(_match->getMap());
+    
+    // テスト用にユニット追加
+    Player *player0 = _match->getPlayer(0);
+    Unit *unit = new Unit("test");
+    unit->autorelease();
+    player0->addUnit(unit);
+    _match->getMap()->addUnit(unit, ccp(0, 0));
 }
 
 MainScene::~MainScene() {

@@ -14,6 +14,14 @@ Match::Match() : _currentTurn(1) ,_currentPhase(0) {
     _players = CCArray::create();
     _players->retain();
     _map = new Map("desert.tmx");
+    
+    // 仮にプレイヤー生成
+    Player *player0 = new Player(0);
+    player0->autorelease();
+    Player *player1 = new Player(1);
+    player1->autorelease();
+    _players->addObject(player0);
+    _players->addObject(player1);
 }
 
 Match::~Match() {
