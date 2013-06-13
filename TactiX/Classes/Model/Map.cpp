@@ -9,7 +9,7 @@
 #include "Map.h"
 
 Map::Map(const char *mapID) {
-    _scrollView = CCScrollView::create();
+    _scrollView = cocos2d::extension::CCScrollView::create();
     _scrollView->retain();
     
     _map = CCTMXTiledMap::create("desert.tmx");

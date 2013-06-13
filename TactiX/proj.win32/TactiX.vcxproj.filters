@@ -27,9 +27,6 @@
     <ClCompile Include="..\Classes\Model\Character.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\Match.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Model\Player.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
@@ -49,6 +46,15 @@
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\LuaBind.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\include\Map.h">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Map.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Match.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,9 +77,6 @@
     <ClInclude Include="..\Classes\include\MainScene.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\include\Match.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\include\Player.h">
       <Filter>Classes</Filter>
     </ClInclude>
@@ -93,6 +96,9 @@
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Lua\LuaScene.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\include\Match.h">
       <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>

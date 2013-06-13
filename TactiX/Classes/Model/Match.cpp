@@ -7,6 +7,7 @@
 //
 
 #include "Match.h"
+#include "Map.h"
 
 Match *Match::_currentMatch = NULL;
 
