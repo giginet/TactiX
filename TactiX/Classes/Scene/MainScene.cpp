@@ -18,10 +18,15 @@ MainScene::MainScene() :LuaScene("main.lua") {
     
     // テスト用にユニット追加
     Player *player0 = _match->getPlayer(0);
-    Unit *unit = new Unit("test");
-    unit->autorelease();
+    Player *player1 = _match->getPlayer(1);
+    Unit *unit = Unit::create("test", 0);
     player0->addUnit(unit);
     _match->getMap()->addUnit(unit, ccp(6, 6));
+    
+    Unit *unit2 = Unit::create("test", 1);
+    player1->addUnit(unit2);
+    _match->getMap()->addUnit(unit2, ccp(8, 8));
+    
 }
 
 MainScene::~MainScene() {

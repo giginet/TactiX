@@ -7,9 +7,12 @@
 //
 
 #include "Unit.h"
+#include <boost/lexical_cast.hpp>
 
-Unit::Unit(const char *characterName) {
-    if (this->initWithFile("unit.png")) {
+using namespace boost;
+
+Unit::Unit(const char *characterName, int ownerID) : _ownerID(ownerID) {
+    if (this->initWithFile((string("unit") + lexical_cast<string>(ownerID) + ".png").c_str())) {
         _weapons = CCArray::create();
         _weapons->retain();
         
@@ -20,6 +23,12 @@ Unit::~Unit() {
     if (_weapons) {
         _weapons->release();
     }
+}
+
+Unit *Unit::create(const char *characterName, int ownerID) {
+    Unit *unit = new Unit(characterName, ownerID);
+    unit->autorelease();
+    return unit;
 }
 
 int Unit::getMoveCapacity() {

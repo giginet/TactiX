@@ -33,11 +33,11 @@ class Unit :public CCSprite {
     /**
      キャラクター名から新規ユニットを生成します
      */
-    Unit(const char *characterName);
+    Unit(const char *characterName, int ownerID);
     
     virtual ~Unit();
     
-    static Unit *create(const char *characterName);
+    static Unit *create(const char *characterName, int ownerID);
     
     /**
      このユニットの移動力を返します
