@@ -14,7 +14,6 @@ using namespace cocos2d::extension;
 MainScene::MainScene() :LuaScene("main.lua") {
     _match = Match::startMatch();
     _match->retain();
-    this->addChild(_match->getMap());
     
     // テスト用にユニット追加
     Player *player0 = _match->getPlayer(0);
@@ -27,6 +26,7 @@ MainScene::MainScene() :LuaScene("main.lua") {
     player1->addUnit(unit2);
     _match->getMap()->addUnit(unit2, ccp(8, 8));
     
+    this->addChild(_match->getMap());
 }
 
 MainScene::~MainScene() {

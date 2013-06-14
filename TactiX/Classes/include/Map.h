@@ -22,17 +22,24 @@ using namespace cocos2d::extension;
  マップを表すクラスです
  マップを描画したり、操作を提供します
  */
-class Map :public CCNode {
+class Map :public CCLayer {
   private:
     string _mapID;
     string _name;
     string _mapFilePath;
+    
+    CCArray *_cursors;
     CCTMXTiledMap *_map;
     CCScrollView *_scrollView;
+    
     CCPoint convertToWorld(const CCPoint mapPoint);
+    virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    virtual void registerWithTouchDispatcher();
   public:
     Map(const char *mapID);
     ~Map();
+    
+    virtual void onEnter();
     
     /**
      グローバル座標からその点の示すマップ座標を返します
