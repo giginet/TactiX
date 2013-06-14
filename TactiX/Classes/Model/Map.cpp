@@ -12,11 +12,19 @@
 #include "Player.h"
 #include <boost/lexical_cast.hpp>
 
+typedef enum {
+    MapZOrderUnit,
+    MapZOrderCursor
+} MapZOrder;
+
 using namespace boost;
 
 Map::Map(const char *mapID) {
     _scrollView = cocos2d::extension::CCScrollView::create();
     _scrollView->retain();
+    
+    _units = CCArray::create();
+    _units->retain();
     
     _map = CCTMXTiledMap::create("desert.tmx");
     _map->retain();
@@ -42,7 +50,7 @@ Map::Map(const char *mapID) {
     for (int i = 0; i < 2; ++i) {
         CCSprite *cursor = CCSprite::create(string("cursor" + lexical_cast<string>(i) + ".png").c_str());
         _cursors->addObject(cursor);
-        _map->addChild(cursor);
+        _map->addChild(cursor, MapZOrderCursor);
     }
     
 }
@@ -51,24 +59,22 @@ Map::~Map() {
     _map->release();
     _scrollView->release();
     _cursors->release();
+    _units->release();
 }
 
 void Map::onEnter() {
     CCLayer::onEnter();
-    Match *match = Match::getCurrentMatch();
     for (int i = 0; i < 2; ++i) {
-        Player *player = match->getPlayer(i);
         CCSprite *cursor = dynamic_cast<CCSprite *>(_cursors->objectAtIndex(i));
-        Unit *unit = dynamic_cast<Unit *>(player->getUnits()->objectAtIndex(0));
+        Unit *unit = dynamic_cast<Unit *>(this->getUnitsByPlayerID(i)->objectAtIndex(0));
         cursor->setPosition(unit->getPosition());
     }
 }
 
 CCPoint Map::convertToMapSpace(const cocos2d::CCPoint worldSpacePoint) {
-    CCPoint offset = _scrollView->getContentOffset();
     CCSize size = _map->getTileSize();
-    int x = (int)((worldSpacePoint.x + offset.x) / size.width);
-    int y = (int)((worldSpacePoint.y + offset.y) / size.height);
+    int x = (int)(worldSpacePoint.x / size.width);
+    int y = (int)(worldSpacePoint.y / size.height);
     return CCPointMake(x, y);
 }
 
@@ -83,12 +89,21 @@ CCSprite *Map::getTileAt(const cocos2d::CCPoint mapPoint) {
 void Map::addUnit(Unit *unit, const CCPoint mapPoint) {
     CCPoint position = this->convertToWorld(mapPoint);
     unit->setPosition(position);
-    _map->addChild(unit);
+    _units->addObject(unit);
+    _map->addChild(unit, MapZOrderUnit);
 }
 
 #pragma private
 
 bool Map::ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent) {
+    CCPoint point = this->convertTouchToNodeSpace(pTouch);
+    CCPoint mapPoint = this->convertToMapSpace(point);
+    CCLog("%f, %f", mapPoint.x, mapPoint.y);
+    Unit *unit = this->getUnitOn(mapPoint);
+    if (unit != NULL) {
+        CCSprite *cursor = dynamic_cast<CCSprite *>(_cursors->objectAtIndex(unit->getOwnerID()));
+        cursor->setPosition(unit->getPosition());
+    }
     return true;
 }
 
@@ -101,4 +116,30 @@ CCPoint Map::convertToWorld(const CCPoint mapPoint) {
     float x = size.width * (mapPoint.x + 0.5);
     float y = size.height * (mapPoint.y + 0.5);
     return CCPointMake(x, y);
+}
+
+Unit *Map::getUnitOn(CCPoint mapPoint) {
+    CCObject* obj = NULL;
+    CCARRAY_FOREACH(_units, obj) {
+        Unit *unit = dynamic_cast<Unit *>(obj);
+        CCPoint unitMapPosition = this->convertToMapSpace(unit->getPosition());
+        if (unitMapPosition.x == mapPoint.x && unitMapPosition.y == mapPoint.y) {
+            return unit;
+        }
+    }
+    return NULL;
+}
+
+CCArray *Map::getUnitsByPlayerID(int playerID) {
+    CCArray *array = CCArray::create();
+    CCObject* obj = NULL;
+    CCARRAY_FOREACH(_units, obj) {
+        Unit *unit = dynamic_cast<Unit *>(obj);
+        array->addObject(unit);
+    }
+    return array;
+}
+
+CCArray *Map::getUnits() {
+    return _units;
 }

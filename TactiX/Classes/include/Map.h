@@ -28,6 +28,7 @@ class Map :public CCLayer {
     string _name;
     string _mapFilePath;
     
+    CCArray *_units;
     CCArray *_cursors;
     CCTMXTiledMap *_map;
     CCScrollView *_scrollView;
@@ -65,9 +66,26 @@ class Map :public CCLayer {
     /**
      マップ上にUnitを配置します
      @param unit 配置するUnit
-     @param mapLocation マップ座標
+     @param mapPoint マップ座標
      */
     void addUnit(Unit *unit, const CCPoint mapPoint);
+    
+    /**
+     指定したマップ座標上にあるユニットを取り出します
+     その座標上に何もいない時はNULLを返します
+     @param mapPoint マップ座標
+     @return ユニット、もしくはNULL
+     */
+    Unit *getUnitOn(CCPoint mapPoint);
+
+    /**
+     指定したPlayerのユニットを取り出します
+     @param playerID プレイヤーID
+     @return ユニット一覧
+     */
+    CCArray *getUnitsByPlayerID(int playerID);
+
+    CCArray *getUnits();
 
 };
 

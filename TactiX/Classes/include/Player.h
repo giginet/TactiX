@@ -18,13 +18,10 @@ using namespace cocos2d;
 class Player :public CCObject {
   private:
     int _playerID;
-    CCArray *_units;
   public:
     Player(int playerID);
     ~Player();
     int getPlayerID();
-    CCArray *getUnits();
-    void addUnit(Unit *unit);
 };
 
 #endif /* defined(__TactiX__Player__) */
