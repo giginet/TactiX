@@ -18,6 +18,12 @@
 using namespace cocos2d;
 using namespace cocos2d::extension;
 
+typedef enum {
+    MainSceneStateMove,
+    MainSceneStateMoved,
+    MainSceneStateBattle
+} MainSceneState;
+
 class MainScene :public LuaScene, public CCScrollViewDelegate {
   private:
     Match *_match;

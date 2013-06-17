@@ -80,6 +80,12 @@ class Match :public CCObject {
     void endPhase();
     
     /**
+     現在操作中のユニットを取り出します
+     @return 操作中のユニット
+     */
+    Unit *getCurrentUnit();
+    
+    /**
      現在のマップオブジェクトを取り出します
      @return マップオブジェクト
      */

@@ -16,9 +16,6 @@ MainScene::MainScene() :LuaScene("main.lua") {
     _match->retain();
     
     // テスト用にユニット追加
-    Player *player0 = _match->getPlayer(0);
-    Player *player1 = _match->getPlayer(1);
-    
     for (int i = 0; i < 5; ++i) {
         Unit *unit = Unit::create("test", 0);
         _match->getMap()->addUnit(unit, ccp(6 + i * 5, 6));
