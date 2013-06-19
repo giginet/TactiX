@@ -50,6 +50,12 @@ void MainScene::onTurnStart(int turn) {
     CCSize size = unit->getContentSize();
     _commandMenu->setPosition(ccp(size.width / 2.0, size.height / 2.0f));
     unit->addChild(_commandMenu);
+    CCPoint from = _match->getMap()->convertToMapSpace(unit->getPosition());
+    CCArray *tiles = _match->getMap()->tilesInRange(from, 5);
+    CCObject* obj = NULL;
+    CCARRAY_FOREACH(tiles, obj) {
+        CCSprite *tile = dynamic_cast<CCSprite *>(obj);
+    }
 }
 
 void MainScene::onPhaseStart(int phase) {

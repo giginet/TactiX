@@ -10,6 +10,7 @@
 #define __TactiX__Map__
 
 #include <iostream>
+#include <cmath>
 #include "cocos2d.h"
 #include "cocos-ext.h"
 #include "Unit.h"
@@ -85,7 +86,31 @@ class Map :public CCLayer {
      */
     CCArray *getUnitsByPlayerID(int playerID);
 
+    /**
+     全ユニットを返します
+     @return 全ユニット一覧
+     */
     CCArray *getUnits();
+    
+    /**
+     指定したマップ座標から指定距離にあるタイルを取り出します
+     @params CCPoint& 原点
+     @params int マンハッタン距離
+     @return タイル一覧
+     */
+    CCArray *tilesInRange(CCPoint &from, int mapDistance);
+    
+    /**
+     指定した2点間のマンハッタン距離を計算します
+     @params point0 点1
+     @params point1 点2
+     @return マンハッタン距離
+     */
+    inline static int getManhattanDistance(CCPoint &point0, CCPoint &point1) {
+        int x = abs(point0.x - point1.x);
+        int y = abs(point0.y - point1.y);
+        return (x + y);
+    }
 
 };
 

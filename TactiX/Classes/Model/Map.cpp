@@ -73,9 +73,10 @@ void Map::onEnter() {
 
 CCPoint Map::convertToMapSpace(const cocos2d::CCPoint worldSpacePoint) {
     CCSize size = _map->getTileSize();
+    CCSize mapSize = _map->getMapSize();
     int x = (int)(worldSpacePoint.x / size.width);
     int y = (int)(worldSpacePoint.y / size.height);
-    return CCPointMake(x, y);
+    return CCPointMake(x, mapSize.height - y - 1);
 }
 
 void Map::moveTo(const cocos2d::CCPoint mapPoint) {
@@ -113,8 +114,9 @@ void Map::registerWithTouchDispatcher() {
 
 CCPoint Map::convertToWorld(const CCPoint mapPoint) {
     CCSize size = _map->getTileSize();
+    CCSize mapSize = _map->getMapSize();
     float x = size.width * (mapPoint.x + 0.5);
-    float y = size.height * (mapPoint.y + 0.5);
+    float y = size.height * ((mapSize.height - mapPoint.y - 1) + 0.5);
     return CCPointMake(x, y);
 }
 
@@ -142,4 +144,24 @@ CCArray *Map::getUnitsByPlayerID(int playerID) {
 
 CCArray *Map::getUnits() {
     return _units;
+}
+
+CCArray *Map::tilesInRange(cocos2d::CCPoint &from, int mapDistance) {
+    /**
+     本当は再帰を使った方が早いけど、
+     パフォーマンス的にも問題なさそうなので
+     全探索します
+     */
+    CCSize size = _map->getMapSize();
+    CCArray *list = CCArray::create();
+    for (int x = 0; x < size.width; ++ x) {
+        for (int y = 0; y < size.height; ++y) {
+            CCPoint p = ccp(x, y);
+            if (Map::getManhattanDistance(p, from) <= mapDistance) {
+                CCSprite *tile = this->getTileAt(p);
+                list->addObject(tile);
+            }
+        }
+    }
+    return list;
 }
