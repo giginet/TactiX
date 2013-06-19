@@ -25,14 +25,37 @@ MainScene::MainScene() :LuaScene("main.lua") {
     }
     
     this->addChild(_match->getMap());
+    
+    _commandMenu = new CommandMenu();
+    
+    _state = MainSceneStateOperation;
+    
 }
 
 MainScene::~MainScene() {
     _match->release();
+    _commandMenu->release();
 }
 
 void MainScene::onEnter() {
     LuaScene::onEnter();
+}
+
+void MainScene::onEnterTransitionDidFinish() {
+    this->onTurnStart(1);
+}
+
+void MainScene::onTurnStart(int turn) {
+    Unit *unit = _match->getCurrentUnit();
+    CCSize size = unit->getContentSize();
+    _commandMenu->setPosition(ccp(size.width / 2.0, size.height / 2.0f));
+    unit->addChild(_commandMenu);
+}
+
+void MainScene::onPhaseStart(int phase) {
+}
+
+void MainScene::onCommandInputed() {
 }
 
 #pragma mark CCScrollViewDelegate

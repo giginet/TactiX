@@ -9,7 +9,7 @@
 #include "Player.h"
 
 Player::Player(int playerID) : _playerID(playerID) {
-    _currentUnit = 0;
+    _currentUnitIndex = 0;
 }
 
 Player::~Player() {
@@ -19,10 +19,10 @@ int Player::getPlayerID() {
     return _playerID;
 }
 
-int Player::getCurrentUnit() {
-    return _currentUnit;
+int Player::getCurrentUnitIndex() {
+    return _currentUnitIndex;
 }
 
-void Player::setCurrentUnit(int currentUnit) {
-    _currentUnit = currentUnit;
+void Player::setCurrentUnitIndex(int currentUnitIndex) {
+    _currentUnitIndex = currentUnitIndex;
 }

@@ -54,12 +54,21 @@ Player *Match::getCurrentPlayer() {
     return this->getPlayer(_currentPhase);
 }
 
+Unit *Match::getCurrentUnit() {
+    Player *player = this->getCurrentPlayer();
+    CCArray *units = _map->getUnitsByPlayerID(_currentPhase);
+    return dynamic_cast<Unit *>(units->objectAtIndex(player->getCurrentUnitIndex()));
+}
+
 int Match::getCurrentTurn() {
     return _currentTurn;
 }
 
 void Match::endPhase() {
+    Player *player = this->getCurrentPlayer();
+    CCArray *units = this->getMap()->getUnitsByPlayerID(player->getPlayerID());
     _currentPhase = (_currentPhase + 1) % 2;
+    player->setCurrentUnitIndex((player->getCurrentUnitIndex() + 1) % units->count());
     if (_currentPhase == 0) {
         _currentTurn += 1;
     }
