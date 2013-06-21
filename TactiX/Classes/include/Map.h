@@ -36,7 +36,7 @@ class Map :public CCLayer {
     CCTMXTiledMap *_map;
     CCScrollView *_scrollView;
     
-    CCPoint convertToWorld(const CCPoint mapPoint);
+    CCPoint convertToWorld(const CCPoint &mapPoint);
     
     MapDelegate *_delegate;
     virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
@@ -52,13 +52,13 @@ class Map :public CCLayer {
      @param worldSpacePoint グローバル座標
      @return マップ座標
      */
-    CCPoint convertToMapSpace(const CCPoint worldSpacePoint);
+    CCPoint convertToMapSpace(const CCPoint &worldSpacePoint);
     
     /**
      スクロールの中心が指定されたタイルの中心になるようにします
      @param mapPoint マップ座標
      */
-    void moveTo(CCPoint mapPoint);
+    void moveTo(const CCPoint &mapPoint);
     
     /**
      指定座標にあるタイルを取り出します
@@ -66,21 +66,21 @@ class Map :public CCLayer {
      @param mapPoint マップ座標
      @return その座標のTileまたはNULL
      */
-    CCSprite *getTileAt(const CCPoint mapPoint);
+    CCSprite *getTileAt(const CCPoint &mapPoint);
     
     /**
      マップ上にUnitを配置します
      @param unit 配置するUnit
      @param mapPoint マップ座標
      */
-    void addUnit(Unit *unit, const CCPoint mapPoint);
+    void addUnit(Unit *unit, const CCPoint &mapPoint);
     
     /**
      マップ上のUnitを動かします
      @param unit 移動させるUnit
      @param mapPoint 移動させる座標
      */
-    void moveUnit(Unit *unit, const CCPoint mapPoint);
+    void moveUnit(Unit *unit, const CCPoint &mapPoint);
     
     /**
      指定したマップ座標上にあるユニットを取り出します
@@ -109,7 +109,7 @@ class Map :public CCLayer {
      @params int マンハッタン距離
      @return タイル一覧
      */
-    CCArray *tilesInRange(CCPoint &from, int mapDistance);
+    CCArray *tilesInRange(const CCPoint &from, int mapDistance);
     
     /**
      指定した2点間のマンハッタン距離を計算します
@@ -117,7 +117,7 @@ class Map :public CCLayer {
      @params point1 点2
      @return マンハッタン距離
      */
-    inline static int getManhattanDistance(CCPoint &point0, CCPoint &point1) {
+    inline static int getManhattanDistance(const CCPoint &point0, const CCPoint &point1) {
         int x = abs(point0.x - point1.x);
         int y = abs(point0.y - point1.y);
         return (x + y);
@@ -142,12 +142,14 @@ class Map :public CCLayer {
 };
 
 class MapDelegate {
-public:
+  public:
     /**
      マップ上の座標をタッチした時に呼び出されます
      @param &mapPoint タッチしたマップ座標
      */
-    virtual void onTapMapPoint(Map *map, CCPoint &mapPoint, Unit *unit) {};
+    virtual void onTapMapPoint(Map *map, const CCPoint &mapPoint, Unit *unit) {
+        CCLog("super");
+    };
 };
 
 #endif /* defined(__TactiX__Map__) */

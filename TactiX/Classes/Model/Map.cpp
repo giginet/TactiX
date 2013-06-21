@@ -73,7 +73,7 @@ void Map::onEnter() {
     }
 }
 
-CCPoint Map::convertToMapSpace(const cocos2d::CCPoint worldSpacePoint) {
+CCPoint Map::convertToMapSpace(const cocos2d::CCPoint &worldSpacePoint) {
     CCSize size = _map->getTileSize();
     CCSize mapSize = _map->getMapSize();
     int x = (int)(worldSpacePoint.x / size.width);
@@ -81,22 +81,22 @@ CCPoint Map::convertToMapSpace(const cocos2d::CCPoint worldSpacePoint) {
     return CCPointMake(x, mapSize.height - y - 1);
 }
 
-void Map::moveTo(const cocos2d::CCPoint mapPoint) {
+void Map::moveTo(const cocos2d::CCPoint &mapPoint) {
 }
 
-CCSprite *Map::getTileAt(const cocos2d::CCPoint mapPoint) {
+CCSprite *Map::getTileAt(const cocos2d::CCPoint &mapPoint) {
     CCTMXLayer *mapLayer = _map->layerNamed("Map");
     return mapLayer->tileAt(mapPoint);
 }
 
-void Map::addUnit(Unit *unit, const CCPoint mapPoint) {
+void Map::addUnit(Unit *unit, const CCPoint &mapPoint) {
     CCPoint position = this->convertToWorld(mapPoint);
     unit->setPosition(position);
     _units->addObject(unit);
     _map->addChild(unit, MapZOrderUnit);
 }
 
-void Map::moveUnit(Unit *unit, const cocos2d::CCPoint mapPoint) {
+void Map::moveUnit(Unit *unit, const cocos2d::CCPoint &mapPoint) {
     if (_units->containsObject(unit)) {
         unit->setPosition(this->convertToWorld(mapPoint));
     }
@@ -128,7 +128,7 @@ CCArray *Map::getUnits() {
     return _units;
 }
 
-CCArray *Map::tilesInRange(cocos2d::CCPoint &from, int mapDistance) {
+CCArray *Map::tilesInRange(const cocos2d::CCPoint &from, int mapDistance) {
     /**
      本当は再帰を使った方が早いけど、
      パフォーマンス的にも問題なさそうなので
@@ -151,9 +151,8 @@ CCArray *Map::tilesInRange(cocos2d::CCPoint &from, int mapDistance) {
 #pragma private
 
 bool Map::ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent) {
-    CCPoint point = this->convertTouchToNodeSpace(pTouch);
+    CCPoint point = _map->convertTouchToNodeSpace(pTouch);
     CCPoint mapPoint = this->convertToMapSpace(point);
-    CCLog("%f, %f", mapPoint.x, mapPoint.y);
     // カーソルの処理
     Unit *unit = this->getUnitOn(mapPoint);
     if (unit != NULL) {
@@ -172,7 +171,7 @@ void Map::registerWithTouchDispatcher() {
     CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
 }
 
-CCPoint Map::convertToWorld(const CCPoint mapPoint) {
+CCPoint Map::convertToWorld(const CCPoint &mapPoint) {
     CCSize size = _map->getTileSize();
     CCSize mapSize = _map->getMapSize();
     float x = size.width * (mapPoint.x + 0.5);

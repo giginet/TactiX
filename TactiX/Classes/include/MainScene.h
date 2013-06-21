@@ -48,7 +48,7 @@ class MainScene :public LuaScene, public CCScrollViewDelegate, CommandMenuDelega
     void onMoveButtonPressed(CommandMenu *menu);
     void onStayButtonPressed(CommandMenu *menu);
     
-    void onTapMapPoint(Map *map, CCPoint &mapPoint, Unit *unit);
+    void onTapMapPoint(Map *map, const CCPoint &mapPoint, Unit *unit);
     
 };
 

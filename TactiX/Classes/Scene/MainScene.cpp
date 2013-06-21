@@ -92,7 +92,7 @@ void MainScene::onStayButtonPressed(CommandMenu *menu) {
 
 #pragma mark MapDelegate
 
-void MainScene::onTapMapPoint(Map *map, cocos2d::CCPoint &mapPoint, Unit *unit) {
+void MainScene::onTapMapPoint(Map *map, const CCPoint &mapPoint, Unit *unit) {
     if (_commandMenu->getState() == CommandMenuStateMove) { // 移動メニューの時
         Unit *currentUnit = _match->getCurrentUnit();
         map->moveUnit(currentUnit, mapPoint);
