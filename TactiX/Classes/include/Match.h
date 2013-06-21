@@ -75,6 +75,13 @@ class Match :public CCObject {
     int getCurrentTurn();
     
     /**
+     プレイヤーが現在操作中のユニットを返します
+     @param PlayerID プレイヤー番号
+     @return 操作中のUnit
+     */
+    Unit *getCurrentUnitByPlayer(int playerID);
+    
+    /**
      今のフェーズを終了して、次のフェーズに移行します
      */
     void endPhase();

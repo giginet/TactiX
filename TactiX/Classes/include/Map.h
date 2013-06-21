@@ -60,6 +60,14 @@ class Map :public CCLayer {
      */
     void moveTo(const CCPoint &mapPoint);
     
+    
+    /**
+     カーソルを取り出します
+     @param playerID プレイヤー番号
+     @return カーソル
+     */
+    CCSprite *getCursor(int playerID);
+    
     /**
      指定座標にあるタイルを取り出します
      見つからない場合はNULLが返ります
@@ -81,6 +89,14 @@ class Map :public CCLayer {
      @param mapPoint 移動させる座標
      */
     void moveUnit(Unit *unit, const CCPoint &mapPoint);
+    
+    /**
+     マップ上のUnitが指定座標に動けるかを判別します
+     @param unit 移動させるUnit
+     @param mapPoint 移動させる座標
+     @return 動けるかどうか
+     */
+    bool canMove(Unit *unit, const CCPoint &mapPoint);
     
     /**
      指定したマップ座標上にあるユニットを取り出します

@@ -23,6 +23,9 @@ Match::Match() : _currentTurn(1) ,_currentPhase(0) {
     player1->autorelease();
     _players->addObject(player0);
     _players->addObject(player1);
+    
+    _currentPhase = 0;
+    _currentTurn = 1;
 }
 
 Match::~Match() {
@@ -55,20 +58,25 @@ Player *Match::getCurrentPlayer() {
 }
 
 Unit *Match::getCurrentUnit() {
-    Player *player = this->getCurrentPlayer();
-    CCArray *units = _map->getUnitsByPlayerID(_currentPhase);
-    return dynamic_cast<Unit *>(units->objectAtIndex(player->getCurrentUnitIndex()));
+    return this->getCurrentUnitByPlayer(_currentPhase);
 }
 
 int Match::getCurrentTurn() {
     return _currentTurn;
 }
 
+Unit *Match::getCurrentUnitByPlayer(int playerID) {
+    CCArray *units = _map->getUnitsByPlayerID(playerID);
+    Player *player = this->getPlayer(playerID);
+    return dynamic_cast<Unit *>(units->objectAtIndex(player->getCurrentUnitIndex()));
+}
+
 void Match::endPhase() {
-    Player *player = this->getCurrentPlayer();
-    CCArray *units = this->getMap()->getUnitsByPlayerID(player->getPlayerID());
+    Player *currentPlayer = this->getCurrentPlayer();
+    CCArray *units = this->getMap()->getUnitsByPlayerID(currentPlayer->getPlayerID());
+    currentPlayer->setCurrentUnitIndex((currentPlayer->getCurrentUnitIndex() + 1) % units->count());
     _currentPhase = (_currentPhase + 1) % 2;
-    player->setCurrentUnitIndex((player->getCurrentUnitIndex() + 1) % units->count());
+    
     if (_currentPhase == 0) {
         _currentTurn += 1;
     }

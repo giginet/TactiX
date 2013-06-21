@@ -49,6 +49,10 @@ void MainScene::onEnterTransitionDidFinish() {
 }
 
 void MainScene::onTurnStart(int turn) {
+    if (_commandMenu->getParent()) {
+        _commandMenu->removeFromParent();
+    }
+    this->updateCursor();
     Unit *unit = _match->getCurrentUnit();
     CCSize size = unit->getContentSize();
     _commandMenu->setPosition(ccp(size.width / 2.0, size.height / 2.0f));
@@ -59,6 +63,19 @@ void MainScene::onPhaseStart(int phase) {
 }
 
 void MainScene::onCommandInputed() {
+}
+
+void MainScene::nextPhase() {
+    _match->endPhase();
+    this->onTurnStart(_match->getCurrentTurn());
+}
+
+void MainScene::updateCursor() {
+    for (int i = 0; i < 2; ++i) {
+        CCSprite *cursor = _match->getMap()->getCursor(i);
+        Unit *unit = _match->getCurrentUnitByPlayer(i);
+        cursor->setPosition(unit->getPosition());
+    }
 }
 
 #pragma mark CCScrollViewDelegate
@@ -78,7 +95,7 @@ void MainScene::onMoveButtonPressed(CommandMenu *menu) {
     if (menu->getState() == CommandMenuStateTop) {
         Unit *unit = dynamic_cast<Unit *>(menu->getParent());
         CCPoint from = _match->getMap()->convertToMapSpace(unit->getPosition());
-        CCArray *tiles = _match->getMap()->tilesInRange(from, 5);
+        CCArray *tiles = _match->getMap()->tilesInRange(from, unit->getMoveCapacity());
         CCObject* obj = NULL;
         CCARRAY_FOREACH(tiles, obj) {
             CCSprite *tile = dynamic_cast<CCSprite *>(obj);
@@ -88,6 +105,7 @@ void MainScene::onMoveButtonPressed(CommandMenu *menu) {
 }
 
 void MainScene::onStayButtonPressed(CommandMenu *menu) {
+    this->nextPhase();
 }
 
 #pragma mark MapDelegate
@@ -95,7 +113,10 @@ void MainScene::onStayButtonPressed(CommandMenu *menu) {
 void MainScene::onTapMapPoint(Map *map, const CCPoint &mapPoint, Unit *unit) {
     if (_commandMenu->getState() == CommandMenuStateMove) { // 移動メニューの時
         Unit *currentUnit = _match->getCurrentUnit();
-        map->moveUnit(currentUnit, mapPoint);
+        if (map->canMove(currentUnit, mapPoint)) {
+            map->moveUnit(currentUnit, mapPoint);
+            this->nextPhase();
+        }
     }
 }
 

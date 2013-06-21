@@ -66,11 +66,6 @@ Map::~Map() {
 
 void Map::onEnter() {
     CCLayer::onEnter();
-    for (int i = 0; i < 2; ++i) {
-        CCSprite *cursor = dynamic_cast<CCSprite *>(_cursors->objectAtIndex(i));
-        Unit *unit = dynamic_cast<Unit *>(this->getUnitsByPlayerID(i)->objectAtIndex(0));
-        cursor->setPosition(unit->getPosition());
-    }
 }
 
 CCPoint Map::convertToMapSpace(const cocos2d::CCPoint &worldSpacePoint) {
@@ -82,6 +77,10 @@ CCPoint Map::convertToMapSpace(const cocos2d::CCPoint &worldSpacePoint) {
 }
 
 void Map::moveTo(const cocos2d::CCPoint &mapPoint) {
+}
+
+CCSprite *Map::getCursor(int playerID) {
+    return dynamic_cast<CCSprite *>(_cursors->objectAtIndex(playerID));
 }
 
 CCSprite *Map::getTileAt(const cocos2d::CCPoint &mapPoint) {
@@ -97,9 +96,17 @@ void Map::addUnit(Unit *unit, const CCPoint &mapPoint) {
 }
 
 void Map::moveUnit(Unit *unit, const cocos2d::CCPoint &mapPoint) {
-    if (_units->containsObject(unit)) {
+    if (this->canMove(unit, mapPoint)) {
         unit->setPosition(this->convertToWorld(mapPoint));
     }
+}
+
+bool Map::canMove(Unit *unit, const cocos2d::CCPoint &mapPoint) {
+    if (_units->containsObject(unit)) {
+        CCPoint unitPoint = this->convertToMapSpace(unit->getPosition());
+        return (Map::getManhattanDistance(mapPoint, unitPoint) <= unit->getMoveCapacity());
+    }
+    return false;
 }
 
 Unit *Map::getUnitOn(CCPoint mapPoint) {
@@ -119,7 +126,9 @@ CCArray *Map::getUnitsByPlayerID(int playerID) {
     CCObject* obj = NULL;
     CCARRAY_FOREACH(_units, obj) {
         Unit *unit = dynamic_cast<Unit *>(obj);
-        array->addObject(unit);
+        if (playerID == unit->getOwnerID()) {
+            array->addObject(unit);
+        }
     }
     return array;
 }
