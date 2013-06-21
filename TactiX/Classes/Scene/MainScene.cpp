@@ -52,6 +52,8 @@ void MainScene::onTurnStart(int turn) {
     if (_commandMenu->getParent()) {
         _commandMenu->removeFromParent();
     }
+    _match->getMap()->getEffectLayer()->removeAllChildrenWithCleanup(true);
+    _commandMenu->changeState(CommandMenuStateTop);
     this->updateCursor();
     Unit *unit = _match->getCurrentUnit();
     CCSize size = unit->getContentSize();
@@ -99,7 +101,10 @@ void MainScene::onMoveButtonPressed(CommandMenu *menu) {
         CCObject* obj = NULL;
         CCARRAY_FOREACH(tiles, obj) {
             CCSprite *tile = dynamic_cast<CCSprite *>(obj);
-            tile->setVisible(false);
+            CCSprite *range = CCSprite::create("range.png");
+            range->setAnchorPoint(tile->getAnchorPoint());
+            range->setPosition(tile->getPosition());
+            _match->getMap()->getEffectLayer()->addChild(range);
         }
     }
 }

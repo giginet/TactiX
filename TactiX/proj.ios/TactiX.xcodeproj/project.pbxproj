@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		073ACB8D176FEC6800A5033F /* CommandMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073ACB8B176FEC6700A5033F /* CommandMenu.cpp */; };
+		073ACB92177517EF00A5033F /* range.png in Resources */ = {isa = PBXBuildFile; fileRef = 073ACB91177517EF00A5033F /* range.png */; };
 		073DC4FD1764AA14003615A6 /* LuaScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073DC4FB1764AA14003615A6 /* LuaScene.cpp */; };
 		073DC5001764BCE0003615A6 /* LuaObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073DC4F917648758003615A6 /* LuaObject.cpp */; };
 		073DC5161764C3E7003615A6 /* crop.png in Resources */ = {isa = PBXBuildFile; fileRef = 073DC5031764C3E7003615A6 /* crop.png */; };
@@ -155,6 +156,7 @@
 /* Begin PBXFileReference section */
 		073ACB8B176FEC6700A5033F /* CommandMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CommandMenu.cpp; path = UI/CommandMenu.cpp; sourceTree = "<group>"; };
 		073ACB8F176FEC9C00A5033F /* CommandMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CommandMenu.h; path = include/CommandMenu.h; sourceTree = "<group>"; };
+		073ACB91177517EF00A5033F /* range.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = range.png; sourceTree = "<group>"; };
 		073DC4F917648758003615A6 /* LuaObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LuaObject.cpp; path = Lua/LuaObject.cpp; sourceTree = "<group>"; };
 		073DC4FA17648758003615A6 /* LuaObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LuaObject.h; path = Lua/LuaObject.h; sourceTree = "<group>"; };
 		073DC4FB1764AA14003615A6 /* LuaScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaScene.cpp; path = Lua/LuaScene.cpp; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 		073DC5021764C3E7003615A6 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				073ACB91177517EF00A5033F /* range.png */,
 				073DC5031764C3E7003615A6 /* crop.png */,
 				073DC5041764C3E7003615A6 /* dog.png */,
 				073DC5051764C3E7003615A6 /* farm.jpg */,
@@ -1013,6 +1016,7 @@
 				07A71F28176B05CB00BA8EF6 /* unit1.png in Resources */,
 				07A71F2B176B198100BA8EF6 /* cursor0.png in Resources */,
 				07A71F2C176B198100BA8EF6 /* cursor1.png in Resources */,
+				073ACB92177517EF00A5033F /* range.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

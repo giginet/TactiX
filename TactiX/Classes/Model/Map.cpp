@@ -47,6 +47,10 @@ Map::Map(const char *mapID) {
     _cursors = CCArray::create();
     _cursors->retain();
     
+    _effectLayer = CCLayer::create();
+    _effectLayer->retain();
+    _map->addChild(_effectLayer);
+    
     _delegate = NULL;
     
     for (int i = 0; i < 2; ++i) {
@@ -62,6 +66,7 @@ Map::~Map() {
     _scrollView->release();
     _cursors->release();
     _units->release();
+    _effectLayer->release();
 }
 
 void Map::onEnter() {
@@ -150,7 +155,9 @@ CCArray *Map::tilesInRange(const cocos2d::CCPoint &from, int mapDistance) {
             CCPoint p = ccp(x, y);
             if (Map::getManhattanDistance(p, from) <= mapDistance) {
                 CCSprite *tile = this->getTileAt(p);
-                list->addObject(tile);
+                if (tile) {
+                    list->addObject(tile);
+                }
             }
         }
     }

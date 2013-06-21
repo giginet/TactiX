@@ -33,6 +33,7 @@ class Map :public CCLayer {
     
     CCArray *_units;
     CCArray *_cursors;
+    CCLayer *_effectLayer;
     CCTMXTiledMap *_map;
     CCScrollView *_scrollView;
     
@@ -154,6 +155,15 @@ class Map :public CCLayer {
     inline void setDelegate(MapDelegate *delegate) {
         _delegate = delegate;
     }
+    
+    /**
+     エフェクトレイヤーを取り出します
+     @return effectLayer
+     */
+    inline CCLayer *getEffectLayer() {
+        return _effectLayer;
+    }
+
 
 };
 
@@ -163,9 +173,7 @@ class MapDelegate {
      マップ上の座標をタッチした時に呼び出されます
      @param &mapPoint タッチしたマップ座標
      */
-    virtual void onTapMapPoint(Map *map, const CCPoint &mapPoint, Unit *unit) {
-        CCLog("super");
-    };
+    virtual void onTapMapPoint(Map *map, const CCPoint &mapPoint, Unit *unit) {};
 };
 
 #endif /* defined(__TactiX__Map__) */

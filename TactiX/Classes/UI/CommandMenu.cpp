@@ -61,3 +61,7 @@ void CommandMenu::setDelegate(CommandMenuDelegate *delegate) {
 CommandMenuState CommandMenu::getState() {
     return _state;
 }
+
+void CommandMenu::changeState(CommandMenuState state) {
+    _state = state;
+}

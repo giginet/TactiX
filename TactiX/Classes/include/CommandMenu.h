@@ -37,6 +37,7 @@ class CommandMenu :public CCNode {
     virtual ~CommandMenu();
     void setDelegate(CommandMenuDelegate *delegate);
     CommandMenuState getState();
+    void changeState(CommandMenuState state);
 };
 
 class CommandMenuDelegate {
