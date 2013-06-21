@@ -26,6 +26,8 @@ class Unit :public CCSprite {
     int _ownerID;
     /** 移動力 **/
     int _moveCapacity;
+    /** 装備中の武器インデックス **/
+    int _currentWeaponIndex;
     /** 装備中の武器 **/
     CCArray *_weapons;
   public:
@@ -68,6 +70,18 @@ class Unit :public CCSprite {
     
     int getOwnerID();
     void setOwnerID(int ownerID);
+    
+    /**
+     現在装備中の武器を次のものに送ります
+     */
+    void nextWeapon();
+    
+    /**
+     現在装備中の武器を取り出します
+     @return 現在装備中の武器
+     */
+    Weapon *getCurrentWeapon();
+    
 };
 
 #endif /* defined(__TactiX__Unit__) */

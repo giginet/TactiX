@@ -36,21 +36,18 @@ CommandMenu::~CommandMenu() {
 void CommandMenu::onMoveButtonPressed(cocos2d::CCObject *sender) {
     if (_delegate) {
         _delegate->onMoveButtonPressed(this);
-        _state = CommandMenuStateMove;
     }
 }
 
 void CommandMenu::onStayButtonPressed(cocos2d::CCObject *sender) {
     if (_delegate) {
         _delegate->onStayButtonPressed(this);
-        _state = CommandMenuStateStay;
     }
 }
 
 void CommandMenu::onAttackButtonPressed(cocos2d::CCObject *sender) {
     if (_delegate) {
         _delegate->onAttackButtonPressed(this);
-        _state = CommandMenuStateAttack;
     }
 }
 

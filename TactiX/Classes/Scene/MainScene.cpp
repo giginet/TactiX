@@ -107,9 +107,11 @@ void MainScene::onMoveButtonPressed(CommandMenu *menu) {
             _match->getMap()->getEffectLayer()->addChild(range);
         }
     }
+    menu->changeState(CommandMenuStateMove);
 }
 
 void MainScene::onStayButtonPressed(CommandMenu *menu) {
+    menu->changeState(CommandMenuStateStay);
     this->nextPhase();
 }
 

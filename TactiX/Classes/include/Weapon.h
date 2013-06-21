@@ -16,9 +16,9 @@ using namespace cocos2d;
 
 typedef enum {
     WeaponTypeNone,
-    WeaponTypeFire,
-    WeaponTypeWater,
-    WeaponTypeWood
+    WeaponTypeSolid,
+    WeaponTypeLiquid,
+    WeaponTypePlasma
 } WeaponType;
 
 typedef enum {
@@ -63,6 +63,13 @@ class Weapon :public CCObject {
      @param 属性
      */
     void setType(WeaponType type);
+    
+    /**
+     他の武器と戦闘して勝っているかどうかを返します
+     @params other 対戦相手の武器
+     @return 勝ってたらtrue、負けか引き分けならfalse
+     */
+    bool canWin(Weapon *other);
 };
 
 #endif /* defined(__TactiX__Weapon__) */

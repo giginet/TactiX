@@ -143,6 +143,10 @@ CCArray *Map::getUnits() {
 }
 
 CCArray *Map::tilesInRange(const cocos2d::CCPoint &from, int mapDistance) {
+    return this->tilesInRange(from, 0, mapDistance);
+}
+
+CCArray *Map::tilesInRange(const cocos2d::CCPoint &from, int minDistance, int maxDistance) {
     /**
      本当は再帰を使った方が早いけど、
      パフォーマンス的にも問題なさそうなので
@@ -153,7 +157,8 @@ CCArray *Map::tilesInRange(const cocos2d::CCPoint &from, int mapDistance) {
     for (int x = 0; x < size.width; ++ x) {
         for (int y = 0; y < size.height; ++y) {
             CCPoint p = ccp(x, y);
-            if (Map::getManhattanDistance(p, from) <= mapDistance) {
+            int distance = Map::getManhattanDistance(p, from);
+            if (minDistance <= distance && distance <= maxDistance) {
                 CCSprite *tile = this->getTileAt(p);
                 if (tile) {
                     list->addObject(tile);

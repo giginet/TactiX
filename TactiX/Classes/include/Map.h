@@ -129,6 +129,15 @@ class Map :public CCLayer {
     CCArray *tilesInRange(const CCPoint &from, int mapDistance);
     
     /**
+     指定したマップ座標から指定距離にあるタイルを取り出します
+     @params CCPoint& 原点
+     @params minDistance 最小マンハッタン距離
+     @params maxDistance 最大マンハッタン距離
+     @return タイル一覧
+     */
+    CCArray *tilesInRange(const CCPoint &from, int minDistance, int maxDistance);
+    
+    /**
      指定した2点間のマンハッタン距離を計算します
      @params point0 点1
      @params point1 点2

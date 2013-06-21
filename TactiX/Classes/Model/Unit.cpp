@@ -15,7 +15,7 @@ Unit::Unit(const char *characterName, int ownerID) : _ownerID(ownerID) {
     if (this->initWithFile((string("unit") + lexical_cast<string>(ownerID) + ".png").c_str())) {
         _weapons = CCArray::create();
         _weapons->retain();
-        
+        _currentWeaponIndex = 0;
     }
 }
 
@@ -60,4 +60,12 @@ int Unit::getOwnerID() {
 
 void Unit::setOwnerID(int ownerID) {
     _ownerID = ownerID;
+}
+
+void Unit::nextWeapon() {
+    _currentWeaponIndex = (_currentWeaponIndex + 1) % 3;
+}
+
+Weapon *Unit::getCurrentWeapon() {
+    return dynamic_cast<Weapon *>(_weapons->objectAtIndex(_currentWeaponIndex));
 }
