@@ -19,6 +19,8 @@ using namespace std;
 using namespace cocos2d;
 using namespace cocos2d::extension;
 
+class MapDelegate;
+
 /**
  マップを表すクラスです
  マップを描画したり、操作を提供します
@@ -35,6 +37,8 @@ class Map :public CCLayer {
     CCScrollView *_scrollView;
     
     CCPoint convertToWorld(const CCPoint mapPoint);
+    
+    MapDelegate *_delegate;
     virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
     virtual void registerWithTouchDispatcher();
   public:
@@ -70,6 +74,13 @@ class Map :public CCLayer {
      @param mapPoint マップ座標
      */
     void addUnit(Unit *unit, const CCPoint mapPoint);
+    
+    /**
+     マップ上のUnitを動かします
+     @param unit 移動させるUnit
+     @param mapPoint 移動させる座標
+     */
+    void moveUnit(Unit *unit, const CCPoint mapPoint);
     
     /**
      指定したマップ座標上にあるユニットを取り出します
@@ -111,7 +122,32 @@ class Map :public CCLayer {
         int y = abs(point0.y - point1.y);
         return (x + y);
     }
+    
+    /**
+     delegateを取り出します
+     @return delegate
+     */
+    inline MapDelegate *getDelegate() {
+        return _delegate;
+    }
+    
+    /**
+     delegateを設定します
+     @param delegate delegate
+     */
+    inline void setDelegate(MapDelegate *delegate) {
+        _delegate = delegate;
+    }
 
+};
+
+class MapDelegate {
+public:
+    /**
+     マップ上の座標をタッチした時に呼び出されます
+     @param &mapPoint タッチしたマップ座標
+     */
+    virtual void onTapMapPoint(Map *map, CCPoint &mapPoint, Unit *unit) {};
 };
 
 #endif /* defined(__TactiX__Map__) */

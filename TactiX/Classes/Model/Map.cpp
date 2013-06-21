@@ -47,6 +47,8 @@ Map::Map(const char *mapID) {
     _cursors = CCArray::create();
     _cursors->retain();
     
+    _delegate = NULL;
+    
     for (int i = 0; i < 2; ++i) {
         CCSprite *cursor = CCSprite::create(string("cursor" + lexical_cast<string>(i) + ".png").c_str());
         _cursors->addObject(cursor);
@@ -94,30 +96,10 @@ void Map::addUnit(Unit *unit, const CCPoint mapPoint) {
     _map->addChild(unit, MapZOrderUnit);
 }
 
-#pragma private
-
-bool Map::ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent) {
-    CCPoint point = this->convertTouchToNodeSpace(pTouch);
-    CCPoint mapPoint = this->convertToMapSpace(point);
-    CCLog("%f, %f", mapPoint.x, mapPoint.y);
-    Unit *unit = this->getUnitOn(mapPoint);
-    if (unit != NULL) {
-        CCSprite *cursor = dynamic_cast<CCSprite *>(_cursors->objectAtIndex(unit->getOwnerID()));
-        cursor->setPosition(unit->getPosition());
+void Map::moveUnit(Unit *unit, const cocos2d::CCPoint mapPoint) {
+    if (_units->containsObject(unit)) {
+        unit->setPosition(this->convertToWorld(mapPoint));
     }
-    return true;
-}
-
-void Map::registerWithTouchDispatcher() {
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
-}
-
-CCPoint Map::convertToWorld(const CCPoint mapPoint) {
-    CCSize size = _map->getTileSize();
-    CCSize mapSize = _map->getMapSize();
-    float x = size.width * (mapPoint.x + 0.5);
-    float y = size.height * ((mapSize.height - mapPoint.y - 1) + 0.5);
-    return CCPointMake(x, y);
 }
 
 Unit *Map::getUnitOn(CCPoint mapPoint) {
@@ -164,4 +146,36 @@ CCArray *Map::tilesInRange(cocos2d::CCPoint &from, int mapDistance) {
         }
     }
     return list;
+}
+
+#pragma private
+
+bool Map::ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent) {
+    CCPoint point = this->convertTouchToNodeSpace(pTouch);
+    CCPoint mapPoint = this->convertToMapSpace(point);
+    CCLog("%f, %f", mapPoint.x, mapPoint.y);
+    // カーソルの処理
+    Unit *unit = this->getUnitOn(mapPoint);
+    if (unit != NULL) {
+        CCSprite *cursor = dynamic_cast<CCSprite *>(_cursors->objectAtIndex(unit->getOwnerID()));
+        cursor->setPosition(unit->getPosition());
+    }
+    
+    // delegateの呼び出し
+    if (_delegate) {
+        _delegate->onTapMapPoint(this, mapPoint, unit);
+    }
+    return true;
+}
+
+void Map::registerWithTouchDispatcher() {
+    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+}
+
+CCPoint Map::convertToWorld(const CCPoint mapPoint) {
+    CCSize size = _map->getTileSize();
+    CCSize mapSize = _map->getMapSize();
+    float x = size.width * (mapPoint.x + 0.5);
+    float y = size.height * ((mapSize.height - mapPoint.y - 1) + 0.5);
+    return CCPointMake(x, y);
 }

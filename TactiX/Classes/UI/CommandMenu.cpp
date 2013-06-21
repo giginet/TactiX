@@ -8,15 +8,6 @@
 
 #include "CommandMenu.h"
 
-void CommandMenuDelegate::onMoveButtonPressed(cocos2d::CCObject *menu) {
-}
-
-void CommandMenuDelegate::onAttackButtonPressed(cocos2d::CCObject *menu) {
-}
-
-void CommandMenuDelegate::onStayButtonPressed(cocos2d::CCObject *menu) {
-}
-
 CommandMenu::CommandMenu() {
     CCMenuItemLabel *move = CCMenuItemLabel::create(CCLabelTTF::create("Move", "Helvetica", 24), this, menu_selector(CommandMenu::onMoveButtonPressed));
     CCMenuItemLabel *attack = CCMenuItemLabel::create(CCLabelTTF::create("Attack", "Helvetica", 24), this, menu_selector(CommandMenu::onAttackButtonPressed));
@@ -27,6 +18,8 @@ CommandMenu::CommandMenu() {
     _topMenu = CCMenu::create(move, NULL);
     _topMenu->retain();
     _delegate = NULL;
+    
+    _state = CommandMenuStateTop;
     
     _topMenu->setPosition(ccp(0, 80));
     _sideMenu->setPosition(ccp(0, 0));
@@ -43,17 +36,28 @@ CommandMenu::~CommandMenu() {
 void CommandMenu::onMoveButtonPressed(cocos2d::CCObject *sender) {
     if (_delegate) {
         _delegate->onMoveButtonPressed(this);
+        _state = CommandMenuStateMove;
     }
 }
 
 void CommandMenu::onStayButtonPressed(cocos2d::CCObject *sender) {
     if (_delegate) {
         _delegate->onStayButtonPressed(this);
+        _state = CommandMenuStateStay;
     }
 }
 
 void CommandMenu::onAttackButtonPressed(cocos2d::CCObject *sender) {
     if (_delegate) {
         _delegate->onAttackButtonPressed(this);
+        _state = CommandMenuStateAttack;
     }
+}
+
+void CommandMenu::setDelegate(CommandMenuDelegate *delegate) {
+    _delegate = delegate;
+}
+
+CommandMenuState CommandMenu::getState() {
+    return _state;
 }

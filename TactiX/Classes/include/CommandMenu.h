@@ -14,15 +14,18 @@
 
 using namespace cocos2d;
 
-class CommandMenuDelegate {
-  public:
-    void onMoveButtonPressed(CCObject *menu);
-    void onAttackButtonPressed(CCObject *menu);
-    void onStayButtonPressed(CCObject *menu);
-};
+typedef enum {
+    CommandMenuStateTop,
+    CommandMenuStateAttack,
+    CommandMenuStateMove,
+    CommandMenuStateStay
+} CommandMenuState;
+
+class CommandMenuDelegate;
 
 class CommandMenu :public CCNode {
   private:
+    CommandMenuState _state;
     CCMenu *_sideMenu;
     CCMenu *_topMenu;
     CommandMenuDelegate *_delegate;
@@ -32,7 +35,15 @@ class CommandMenu :public CCNode {
   public:
     CommandMenu();
     virtual ~CommandMenu();
-    void *setDelegate(CommandMenuDelegate *delegate);
+    void setDelegate(CommandMenuDelegate *delegate);
+    CommandMenuState getState();
+};
+
+class CommandMenuDelegate {
+  public:
+    virtual void onMoveButtonPressed(CommandMenu *menu) {};
+    virtual void onAttackButtonPressed(CommandMenu *menu) {};
+    virtual void onStayButtonPressed(CommandMenu *menu) {};
 };
 
 #endif /* defined(__TactiX__CommandMenu__) */

@@ -9,12 +9,14 @@
 #ifndef __TactiX__MainScene__
 #define __TactiX__MainScene__
 
+#include <iostream>
+
 #include "LuaScene.h"
 #include "cocos2d.h"
 #include "cocos-ext.h"
 #include "Match.h"
+#include "Map.h"
 #include "CommandMenu.h"
-#include <iostream>
 
 using namespace cocos2d;
 using namespace cocos2d::extension;
@@ -26,7 +28,7 @@ typedef enum {
     MainSceneStateBattle
 } MainSceneState;
 
-class MainScene :public LuaScene, public CCScrollViewDelegate, CommandMenuDelegate {
+class MainScene :public LuaScene, public CCScrollViewDelegate, CommandMenuDelegate, MapDelegate {
   private:
     MainSceneState _state;
     Match *_match;
@@ -41,6 +43,13 @@ class MainScene :public LuaScene, public CCScrollViewDelegate, CommandMenuDelega
     virtual void onEnterTransitionDidFinish();
     void scrollViewDidScroll(CCScrollView *view);
     void scrollViewDidZoom(CCScrollView *view);
+    
+    void onAttackButtonPressed(CommandMenu *menu);
+    void onMoveButtonPressed(CommandMenu *menu);
+    void onStayButtonPressed(CommandMenu *menu);
+    
+    void onTapMapPoint(Map *map, CCPoint &mapPoint, Unit *unit);
+    
 };
 
 #endif /* defined(__TactiX__MainScene__) */
