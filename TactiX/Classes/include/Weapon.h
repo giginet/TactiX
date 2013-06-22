@@ -70,6 +70,18 @@ class Weapon :public CCObject {
      @return 勝ってたらtrue、負けか引き分けならfalse
      */
     bool canWin(Weapon *other);
+
+    /**
+     武器の名前を取り出します
+     @return 武器の名前
+    */
+    virtual std::string getWeaponName() {};
+
+    /**
+     武器属性名を取り出します
+     @return 属性名
+     */
+    inline std::string getTypeName();
 };
 
 #endif /* defined(__TactiX__Weapon__) */

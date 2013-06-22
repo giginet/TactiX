@@ -16,6 +16,7 @@ class Spear :public Weapon {
   public:
     Spear();
     bool canAttack(CCPoint relPos);
+    std::string getWeaponName();
 };
 
 #endif /* defined(__TactiX__Spear__) */

@@ -16,6 +16,8 @@ class Bow :public Weapon {
   public:
     Bow();
     bool canAttack(CCPoint relPos);
+    std::string getWeaponName();
+
 };
 
 #endif /* defined(__TactiX__Bow__) */

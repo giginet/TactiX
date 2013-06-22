@@ -12,5 +12,10 @@ Spear::Spear() {
 }
 
 bool Spear::canAttack(cocos2d::CCPoint relPos) {
-    return true;
+    // 自分の隣２マス（十字）の相手に攻撃可能
+    return (relPos.x == 0 && relPos.y <= 2) || (relPos.x <= 2 && relPos.y == 0);
+}
+
+std::string Spear::getWeaponName() {
+    return "槍";
 }

@@ -12,9 +12,14 @@ Sword::Sword() {
 }
 
 bool Sword::canAttack(cocos2d::CCPoint relPos) {
-    return true;
+    // 周囲8方向のみ
+    return (relPos.x == 1 ^ relPos.y == 1);
 }
 
 int Sword::getMoveCapacity() {
     return 1;
+}
+
+std::string Sword::getWeaponName() {
+    return "剣";
 }

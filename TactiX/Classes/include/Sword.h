@@ -17,6 +17,7 @@ class Sword :public Weapon {
     Sword();
     bool canAttack(CCPoint relPos);
     int getMoveCapacity();
+    std::string getWeaponName();
 };
 
 #endif /* defined(__TactiX__Sword__) */
