@@ -35,19 +35,16 @@ Character::Character(const char *characterName) :_name("") {
             }
         }
         if (kind == WeaponKindSword) {
-            Sword *sword = new Sword();
+            Sword *sword = new Sword(type);
             sword->autorelease();
-            sword->setType(type);
             _defaultWeapons->addObject(sword);
         } else if (kind == WeaponKindSpear) {
-            Spear *spear = new Spear();
+            Spear *spear = new Spear(type);
             spear->autorelease();
-            spear->setType(type);
             _defaultWeapons->addObject(spear);
         } else if (kind == WeaponKindBow) {
-            Bow *bow = new Bow();
+            Bow *bow = new Bow(type);
             bow->autorelease();
-            bow->setType(type);
             _defaultWeapons->addObject(bow);
         }
     }

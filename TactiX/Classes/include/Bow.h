@@ -14,7 +14,7 @@
 
 class Bow :public Weapon {
   public:
-    Bow();
+    Bow(WeaponType type);
     bool canAttack(CCPoint relPos);
     std::string getWeaponName();
 

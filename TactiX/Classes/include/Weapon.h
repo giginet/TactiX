@@ -33,7 +33,7 @@ typedef enum {
  */
 class Weapon :public CCObject {
   protected:
-    Weapon();
+    Weapon(WeaponType type);
     /** 属性 **/
     WeaponType _type;
   public:
@@ -75,13 +75,13 @@ class Weapon :public CCObject {
      武器の名前を取り出します
      @return 武器の名前
     */
-    virtual std::string getWeaponName() {};
+    virtual std::string getWeaponName() { return ""; };
 
     /**
      武器属性名を取り出します
      @return 属性名
      */
-    inline std::string getTypeName();
+    std::string getTypeName();
 };
 
 #endif /* defined(__TactiX__Weapon__) */

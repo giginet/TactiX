@@ -55,6 +55,24 @@ Unit *UnitManager::getUnitOn(CCPoint mapPoint) {
     return NULL;
 }
 
+CCArray *UnitManager::getAttackTargets(Unit *unit) {
+    CCArray *array = CCArray::create();
+    Map *map = Match::getCurrentMatch()->getMap();
+    CCObject* obj = NULL;
+    CCPoint mapPos = map->convertToMapSpace(unit->getPosition());
+    CCARRAY_FOREACH(_units, obj) {
+        Unit *other = dynamic_cast<Unit *>(obj);
+        if (other != unit) {
+            CCPoint otherMapPos = map->convertToMapSpace(other->getPosition());
+            CCPoint rel = ccpSub(otherMapPos, mapPos);
+            if (unit->getCurrentWeapon()->canAttack(rel) ) {
+                array->addObject(unit);
+            }
+        }
+    }
+    return array;
+}
+
 CCArray *UnitManager::getUnitsByPlayerID(int playerID) {
     CCArray *array = CCArray::create();
     CCObject* obj = NULL;

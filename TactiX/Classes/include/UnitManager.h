@@ -53,6 +53,14 @@ class UnitManager :public CCObject {
     Unit *getUnitOn(CCPoint mapPoint);
     
     /**
+     あるUnitが現在装備中の武器で攻撃できる相手を返します。
+     自分は含まれません
+     @param unit 攻撃するユニット
+     @return ユニット一覧
+     */
+    CCArray *getAttackTargets(Unit *unit);
+    
+    /**
      指定したPlayerのユニットを取り出します
      @param playerID プレイヤーID
      @return ユニット一覧

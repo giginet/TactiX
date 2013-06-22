@@ -59,12 +59,19 @@ void MainScene::onTurnStart(int turn) {
     CCSize size = unit->getContentSize();
     _commandMenu->setPosition(ccp(size.width / 2.0, size.height / 2.0f));
     unit->addChild(_commandMenu);
+    CCLog("%s, %s", unit->getCurrentWeapon()->getWeaponName().c_str(), unit->getCurrentWeapon()->getTypeName().c_str());
 }
 
 void MainScene::onPhaseStart(int phase) {
 }
 
-void MainScene::onCommandInputed() {
+void MainScene::onMoved() {
+    CCArray *targets = _match->getMap()->getUnitManager()->getAttackTargets(_match->getCurrentUnit());
+    if (targets->count() == 0) {
+        this->nextPhase();
+    } else {
+        CCLog("can Attack");
+    }
 }
 
 void MainScene::nextPhase() {
@@ -122,7 +129,7 @@ void MainScene::onTapMapPoint(Map *map, const CCPoint &mapPoint, Unit *unit) {
         Unit *currentUnit = _match->getCurrentUnit();
         if (map->getUnitManager()->canMove(currentUnit, mapPoint)) {
             map->getUnitManager()->moveUnit(currentUnit, mapPoint);
-            this->nextPhase();
+            this->onMoved();
         }
     }
 }

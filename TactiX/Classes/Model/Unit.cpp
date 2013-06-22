@@ -8,6 +8,9 @@
 
 #include "Unit.h"
 #include <boost/lexical_cast.hpp>
+#include "Bow.h"
+#include "Sword.h"
+#include "Spear.h"
 
 using namespace boost;
 
@@ -16,6 +19,13 @@ Unit::Unit(const char *characterName, int ownerID) : _ownerID(ownerID) {
         _weapons = CCArray::create();
         _weapons->retain();
         _currentWeaponIndex = 0;
+        
+        // 仮で適当なWeaponを作る
+        Weapon *random0 = new Bow((WeaponType)(rand() % 3));
+        Weapon *random1 = new Sword((WeaponType)(rand() % 3));
+        Weapon *random2 = new Spear((WeaponType)(rand() % 3));
+        CCArray *weapons = CCArray::create(random0, random1, random2, NULL);
+        this->setWeapons(weapons);
     }
 }
 

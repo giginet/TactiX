@@ -35,7 +35,7 @@ class MainScene :public LuaScene, public CCScrollViewDelegate, CommandMenuDelega
     CommandMenu *_commandMenu;
     void onTurnStart(int turn);
     void onPhaseStart(int phase);
-    void onCommandInputed();
+    void onMoved();
     void nextPhase();
     void updateCursor();
   public:

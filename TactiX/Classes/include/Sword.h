@@ -14,7 +14,7 @@
 
 class Sword :public Weapon {
   public:
-    Sword();
+    Sword(WeaponType type);
     bool canAttack(CCPoint relPos);
     int getMoveCapacity();
     std::string getWeaponName();

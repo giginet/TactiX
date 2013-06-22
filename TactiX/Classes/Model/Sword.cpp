@@ -8,12 +8,12 @@
 
 #include "Sword.h"
 
-Sword::Sword() {
+Sword::Sword(WeaponType type) :Weapon(type) {
 }
 
 bool Sword::canAttack(cocos2d::CCPoint relPos) {
     // 周囲8方向のみ
-    return (relPos.x == 1 ^ relPos.y == 1);
+    return (abs(relPos.x) == 1 ^ abs(relPos.y) == 1);
 }
 
 int Sword::getMoveCapacity() {

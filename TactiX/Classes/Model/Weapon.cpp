@@ -8,7 +8,7 @@
 
 #include "Weapon.h"
 
-Weapon::Weapon() : _type(WeaponTypeNone) {
+Weapon::Weapon(WeaponType type) : _type(type) {
 }
 
 Weapon::~Weapon() {

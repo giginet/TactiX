@@ -14,7 +14,7 @@
 
 class Spear :public Weapon {
   public:
-    Spear();
+    Spear(WeaponType type);
     bool canAttack(CCPoint relPos);
     std::string getWeaponName();
 };
