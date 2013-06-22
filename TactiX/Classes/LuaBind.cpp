@@ -33,9 +33,9 @@ TOLUA_API int tolua_TactiX_open (lua_State* tolua_S)
   tolua_constant(tolua_S,"WeaponKindSpear",WeaponKindSpear);
   tolua_constant(tolua_S,"WeaponKindBow",WeaponKindBow);
   tolua_constant(tolua_S,"WeaponTypeNone",WeaponTypeNone);
-  tolua_constant(tolua_S,"WeaponTypeFire",WeaponTypeFire);
-  tolua_constant(tolua_S,"WeaponTypeWater",WeaponTypeWater);
-  tolua_constant(tolua_S,"WeaponTypeWood",WeaponTypeWood);
+  tolua_constant(tolua_S,"WeaponTypeSolid",WeaponTypeSolid);
+  tolua_constant(tolua_S,"WeaponTypeLiquid",WeaponTypeLiquid);
+  tolua_constant(tolua_S,"WeaponTypePlasma",WeaponTypePlasma);
  tolua_endmodule(tolua_S);
  return 1;
 }

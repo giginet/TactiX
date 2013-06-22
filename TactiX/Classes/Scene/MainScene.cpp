@@ -18,10 +18,10 @@ MainScene::MainScene() :LuaScene("main.lua") {
     // テスト用にユニット追加
     for (int i = 0; i < 5; ++i) {
         Unit *unit = Unit::create("test", 0);
-        _match->getMap()->addUnit(unit, ccp(6 + i * 5, 6));
+        _match->getMap()->getUnitManager()->addUnit(unit, ccp(6 + i * 5, 6));
         
         Unit *unit2 = Unit::create("test", 1);
-        _match->getMap()->addUnit(unit2, ccp(6 + i * 5, 15));
+        _match->getMap()->getUnitManager()->addUnit(unit2, ccp(6 + i * 5, 15));
     }
     
     this->addChild(_match->getMap());
@@ -120,8 +120,8 @@ void MainScene::onStayButtonPressed(CommandMenu *menu) {
 void MainScene::onTapMapPoint(Map *map, const CCPoint &mapPoint, Unit *unit) {
     if (_commandMenu->getState() == CommandMenuStateMove) { // 移動メニューの時
         Unit *currentUnit = _match->getCurrentUnit();
-        if (map->canMove(currentUnit, mapPoint)) {
-            map->moveUnit(currentUnit, mapPoint);
+        if (map->getUnitManager()->canMove(currentUnit, mapPoint)) {
+            map->getUnitManager()->moveUnit(currentUnit, mapPoint);
             this->nextPhase();
         }
     }

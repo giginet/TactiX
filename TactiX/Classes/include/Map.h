@@ -14,10 +14,16 @@
 #include "cocos2d.h"
 #include "cocos-ext.h"
 #include "Unit.h"
+#include "UnitManager.h"
 
 using namespace std;
 using namespace cocos2d;
 using namespace cocos2d::extension;
+
+typedef enum {
+    MapZOrderUnit,
+    MapZOrderCursor
+} MapZOrder;
 
 class MapDelegate;
 
@@ -31,13 +37,11 @@ class Map :public CCLayer {
     string _name;
     string _mapFilePath;
     
-    CCArray *_units;
+    UnitManager *_unitManager;
     CCArray *_cursors;
     CCLayer *_effectLayer;
     CCTMXTiledMap *_map;
     CCScrollView *_scrollView;
-    
-    CCPoint convertToWorld(const CCPoint &mapPoint);
     
     MapDelegate *_delegate;
     virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
@@ -54,6 +58,8 @@ class Map :public CCLayer {
      @return マップ座標
      */
     CCPoint convertToMapSpace(const CCPoint &worldSpacePoint);
+    
+    CCPoint convertToWorld(const CCPoint &mapPoint);
     
     /**
      スクロールの中心が指定されたタイルの中心になるようにします
@@ -76,49 +82,6 @@ class Map :public CCLayer {
      @return その座標のTileまたはNULL
      */
     CCSprite *getTileAt(const CCPoint &mapPoint);
-    
-    /**
-     マップ上にUnitを配置します
-     @param unit 配置するUnit
-     @param mapPoint マップ座標
-     */
-    void addUnit(Unit *unit, const CCPoint &mapPoint);
-    
-    /**
-     マップ上のUnitを動かします
-     @param unit 移動させるUnit
-     @param mapPoint 移動させる座標
-     */
-    void moveUnit(Unit *unit, const CCPoint &mapPoint);
-    
-    /**
-     マップ上のUnitが指定座標に動けるかを判別します
-     @param unit 移動させるUnit
-     @param mapPoint 移動させる座標
-     @return 動けるかどうか
-     */
-    bool canMove(Unit *unit, const CCPoint &mapPoint);
-    
-    /**
-     指定したマップ座標上にあるユニットを取り出します
-     その座標上に何もいない時はNULLを返します
-     @param mapPoint マップ座標
-     @return ユニット、もしくはNULL
-     */
-    Unit *getUnitOn(CCPoint mapPoint);
-
-    /**
-     指定したPlayerのユニットを取り出します
-     @param playerID プレイヤーID
-     @return ユニット一覧
-     */
-    CCArray *getUnitsByPlayerID(int playerID);
-
-    /**
-     全ユニットを返します
-     @return 全ユニット一覧
-     */
-    CCArray *getUnits();
     
     /**
      指定したマップ座標から指定距離にあるタイルを取り出します
@@ -171,6 +134,14 @@ class Map :public CCLayer {
      */
     inline CCLayer *getEffectLayer() {
         return _effectLayer;
+    }
+    
+    inline CCTMXTiledMap *getTiledMap() {
+        return _map;
+    }
+    
+    inline UnitManager *getUnitManager() {
+        return _unitManager;
     }
 
 

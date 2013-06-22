@@ -66,14 +66,14 @@ int Match::getCurrentTurn() {
 }
 
 Unit *Match::getCurrentUnitByPlayer(int playerID) {
-    CCArray *units = _map->getUnitsByPlayerID(playerID);
+    CCArray *units = _map->getUnitManager()->getUnitsByPlayerID(playerID);
     Player *player = this->getPlayer(playerID);
     return dynamic_cast<Unit *>(units->objectAtIndex(player->getCurrentUnitIndex()));
 }
 
 void Match::endPhase() {
     Player *currentPlayer = this->getCurrentPlayer();
-    CCArray *units = this->getMap()->getUnitsByPlayerID(currentPlayer->getPlayerID());
+    CCArray *units = this->getMap()->getUnitManager()->getUnitsByPlayerID(currentPlayer->getPlayerID());
     currentPlayer->setCurrentUnitIndex((currentPlayer->getCurrentUnitIndex() + 1) % units->count());
     _currentPhase = (_currentPhase + 1) % 2;
     

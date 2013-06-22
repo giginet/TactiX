@@ -12,19 +12,11 @@
 #include "Player.h"
 #include <boost/lexical_cast.hpp>
 
-typedef enum {
-    MapZOrderUnit,
-    MapZOrderCursor
-} MapZOrder;
-
 using namespace boost;
 
 Map::Map(const char *mapID) {
     _scrollView = cocos2d::extension::CCScrollView::create();
     _scrollView->retain();
-    
-    _units = CCArray::create();
-    _units->retain();
     
     _map = CCTMXTiledMap::create("desert.tmx");
     _map->retain();
@@ -51,6 +43,8 @@ Map::Map(const char *mapID) {
     _effectLayer->retain();
     _map->addChild(_effectLayer);
     
+    _unitManager = new UnitManager();
+    
     _delegate = NULL;
     
     for (int i = 0; i < 2; ++i) {
@@ -62,10 +56,10 @@ Map::Map(const char *mapID) {
 }
 
 Map::~Map() {
+    _unitManager->release();
     _map->release();
     _scrollView->release();
     _cursors->release();
-    _units->release();
     _effectLayer->release();
 }
 
@@ -91,55 +85,6 @@ CCSprite *Map::getCursor(int playerID) {
 CCSprite *Map::getTileAt(const cocos2d::CCPoint &mapPoint) {
     CCTMXLayer *mapLayer = _map->layerNamed("Map");
     return mapLayer->tileAt(mapPoint);
-}
-
-void Map::addUnit(Unit *unit, const CCPoint &mapPoint) {
-    CCPoint position = this->convertToWorld(mapPoint);
-    unit->setPosition(position);
-    _units->addObject(unit);
-    _map->addChild(unit, MapZOrderUnit);
-}
-
-void Map::moveUnit(Unit *unit, const cocos2d::CCPoint &mapPoint) {
-    if (this->canMove(unit, mapPoint)) {
-        unit->setPosition(this->convertToWorld(mapPoint));
-    }
-}
-
-bool Map::canMove(Unit *unit, const cocos2d::CCPoint &mapPoint) {
-    if (_units->containsObject(unit)) {
-        CCPoint unitPoint = this->convertToMapSpace(unit->getPosition());
-        return (Map::getManhattanDistance(mapPoint, unitPoint) <= unit->getMoveCapacity());
-    }
-    return false;
-}
-
-Unit *Map::getUnitOn(CCPoint mapPoint) {
-    CCObject* obj = NULL;
-    CCARRAY_FOREACH(_units, obj) {
-        Unit *unit = dynamic_cast<Unit *>(obj);
-        CCPoint unitMapPosition = this->convertToMapSpace(unit->getPosition());
-        if (unitMapPosition.x == mapPoint.x && unitMapPosition.y == mapPoint.y) {
-            return unit;
-        }
-    }
-    return NULL;
-}
-
-CCArray *Map::getUnitsByPlayerID(int playerID) {
-    CCArray *array = CCArray::create();
-    CCObject* obj = NULL;
-    CCARRAY_FOREACH(_units, obj) {
-        Unit *unit = dynamic_cast<Unit *>(obj);
-        if (playerID == unit->getOwnerID()) {
-            array->addObject(unit);
-        }
-    }
-    return array;
-}
-
-CCArray *Map::getUnits() {
-    return _units;
 }
 
 CCArray *Map::tilesInRange(const cocos2d::CCPoint &from, int mapDistance) {
@@ -175,7 +120,7 @@ bool Map::ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent) {
     CCPoint point = _map->convertTouchToNodeSpace(pTouch);
     CCPoint mapPoint = this->convertToMapSpace(point);
     // カーソルの処理
-    Unit *unit = this->getUnitOn(mapPoint);
+    Unit *unit = _unitManager->getUnitOn(mapPoint);
     if (unit != NULL) {
         CCSprite *cursor = dynamic_cast<CCSprite *>(_cursors->objectAtIndex(unit->getOwnerID()));
         cursor->setPosition(unit->getPosition());
