@@ -8,6 +8,9 @@
 #include "LuaBind.h"
 #include "LuaObject.h"
 
+#include <cstdlib>
+#include <ctime>
+
 USING_NS_CC;
 using namespace CocosDenshion;
 
@@ -47,6 +50,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     CCDirector::sharedDirector()->setDepthTest(false);
     CCDirector::sharedDirector()->setProjection(kCCDirectorProjection2D);
     
+    srand(time(NULL));
     
     // Pathの設定
     std::vector<std::string> paths;

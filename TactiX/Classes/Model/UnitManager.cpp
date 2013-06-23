@@ -33,6 +33,14 @@ void UnitManager::moveUnit(Unit *unit, const cocos2d::CCPoint &mapPoint) {
     }
 }
 
+void UnitManager::removeUnit(Unit *unit) {
+    if (_units->containsObject(unit)) {
+        Map *map = Match::getCurrentMatch()->getMap();
+        map->getTiledMap()->removeChild(unit);
+        _units->removeObject(unit);
+    }
+}
+
 bool UnitManager::canMove(Unit *unit, const cocos2d::CCPoint &mapPoint) {
     Map *map = Match::getCurrentMatch()->getMap();
     if (_units->containsObject(unit)) {

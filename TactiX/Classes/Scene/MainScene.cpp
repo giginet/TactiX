@@ -82,7 +82,13 @@ void MainScene::onMoved() {
     }
 }
 
+void MainScene::onAttacked() {
+    this->nextPhase();
+}
+
 void MainScene::nextPhase() {
+    Unit *currentUnit = _match->getCurrentUnit();
+    currentUnit->nextWeapon(); // 武器を送る
     if (_match->endPhase()) {
         this->onTurnStart(_match->getCurrentTurn());
     }
@@ -155,6 +161,26 @@ void MainScene::onTapMapPoint(Map *map, const CCPoint &mapPoint, Unit *unit) {
             map->getUnitManager()->moveUnit(currentUnit, mapPoint);
             this->onMoved();
         }
+    } else if (_commandMenu->getState() == CommandMenuStateAttack) { // 攻撃メニューの時
+        Unit *currentUnit = _match->getCurrentUnit();
+        if (unit) {
+            CCPoint relPos = ccpSub(currentUnit->getPosition(), unit->getPosition());
+            currentUnit->getCurrentWeapon()->canAttack(relPos);
+            bool win = currentUnit->getCurrentWeapon()->canWin(unit->getCurrentWeapon());
+            bool lose = unit->getCurrentWeapon()->canWin(currentUnit->getCurrentWeapon());
+            if (!win && !lose) { // 引き分けの時
+                CCLog("引き分け");
+            } else if (win) { // 攻撃側が勝つ時
+                CCLog("勝った");
+                _match->getMap()->getUnitManager()->removeUnit(unit); // 敵を殺す
+            } else if (lose) { // 攻撃側が負ける時
+                CCLog("負けた");
+                if (unit->getCurrentWeapon()->canAttack(relPos)) { // 相手の武器がこっちに当たるかどうか
+                    _match->getMap()->getUnitManager()->removeUnit(currentUnit); // 自分が死ぬ
+                }
+            }
+        }
+        this->onAttacked();
     }
 }
 

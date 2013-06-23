@@ -32,9 +32,9 @@ void Weapon::setType(WeaponType type) {
 
 bool Weapon::canWin(Weapon *other) {
     //固体＜液体＜プラズマ＜固体
-    return _type == WeaponTypeSolid && other->getType() == WeaponTypeLiquid &&
-    _type == WeaponTypeLiquid && other->getType() == WeaponTypePlasma &&
-    _type == WeaponTypePlasma && other->getType() == WeaponTypeSolid;
+    return (_type == WeaponTypeSolid && other->getType() == WeaponTypeLiquid) ||
+    (_type == WeaponTypeLiquid && other->getType() == WeaponTypePlasma) ||
+    (_type == WeaponTypePlasma && other->getType() == WeaponTypeSolid);
 }
 
 std::string Weapon::getTypeName() {

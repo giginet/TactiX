@@ -37,6 +37,12 @@ class UnitManager :public CCObject {
     void moveUnit(Unit *unit, const CCPoint &mapPoint);
     
     /**
+     マップ上のユニットを削除します
+     @param unit 削除するUnit
+     */
+    void removeUnit(Unit *unit);
+    
+    /**
      マップ上のUnitが指定座標に動けるかを判別します
      @param unit 移動させるUnit
      @param mapPoint 移動させる座標
