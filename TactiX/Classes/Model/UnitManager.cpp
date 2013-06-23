@@ -9,6 +9,8 @@
 #include "UnitManager.h"
 #include "Match.h"
 
+using namespace cocos2d;
+
 UnitManager::UnitManager() {
     _units = CCArray::create();
     _units->retain();

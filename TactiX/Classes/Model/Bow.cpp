@@ -19,5 +19,5 @@ bool Bow::canAttack(cocos2d::CCPoint relPos) {
 }
 
 std::string Bow::getWeaponName() {
-    return "弓";
+    return "Arrow";
 }

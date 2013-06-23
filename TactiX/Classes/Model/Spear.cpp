@@ -17,5 +17,5 @@ bool Spear::canAttack(cocos2d::CCPoint relPos) {
 }
 
 std::string Spear::getWeaponName() {
-    return "槍";
+    return "Spear";
 }

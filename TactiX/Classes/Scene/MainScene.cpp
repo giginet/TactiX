@@ -9,6 +9,7 @@
 #include "cocos-ext.h"
 #include "MainScene.h"
 
+using namespace cocos2d;
 using namespace cocos2d::extension;
 
 MainScene::MainScene() :LuaScene("main.lua") {
@@ -169,12 +170,12 @@ void MainScene::onTapMapPoint(Map *map, const CCPoint &mapPoint, Unit *unit) {
             bool win = currentUnit->getCurrentWeapon()->canWin(unit->getCurrentWeapon());
             bool lose = unit->getCurrentWeapon()->canWin(currentUnit->getCurrentWeapon());
             if (!win && !lose) { // 引き分けの時
-                CCLog("引き分け");
+                CCLog("draw");
             } else if (win) { // 攻撃側が勝つ時
-                CCLog("勝った");
+                CCLog("win");
                 _match->getMap()->getUnitManager()->removeUnit(unit); // 敵を殺す
             } else if (lose) { // 攻撃側が負ける時
-                CCLog("負けた");
+                CCLog("lose");
                 if (unit->getCurrentWeapon()->canAttack(relPos)) { // 相手の武器がこっちに当たるかどうか
                     _match->getMap()->getUnitManager()->removeUnit(currentUnit); // 自分が死ぬ
                 }

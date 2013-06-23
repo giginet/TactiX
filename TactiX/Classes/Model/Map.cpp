@@ -12,6 +12,7 @@
 #include "Player.h"
 #include <boost/lexical_cast.hpp>
 
+using namespace cocos2d;
 using namespace boost;
 
 Map::Map(const char *mapID) {
@@ -78,7 +79,7 @@ CCPoint Map::convertToMapSpace(const cocos2d::CCPoint &worldSpacePoint) {
 void Map::moveTo(const cocos2d::CCPoint &mapPoint) {
 }
 
-CCSprite *Map::getCursor(int playerID) {
+cocos2d::CCSprite *Map::getCursor(int playerID) {
     return dynamic_cast<CCSprite *>(_cursors->objectAtIndex(playerID));
 }
 
@@ -159,7 +160,7 @@ void Map::registerWithTouchDispatcher() {
     CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
 }
 
-CCPoint Map::convertToWorld(const CCPoint &mapPoint) {
+CCPoint Map::convertToWorld(const cocos2d::CCPoint &mapPoint) {
     CCSize size = _map->getTileSize();
     CCSize mapSize = _map->getMapSize();
     float x = size.width * (mapPoint.x + 0.5);

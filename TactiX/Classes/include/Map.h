@@ -57,9 +57,9 @@ class Map :public CCLayer {
      @param worldSpacePoint グローバル座標
      @return マップ座標
      */
-    CCPoint convertToMapSpace(const CCPoint &worldSpacePoint);
+    CCPoint convertToMapSpace(const cocos2d::CCPoint &worldSpacePoint);
     
-    CCPoint convertToWorld(const CCPoint &mapPoint);
+    CCPoint convertToWorld(const cocos2d::CCPoint &mapPoint);
     
     /**
      スクロールの中心が指定されたタイルの中心になるようにします

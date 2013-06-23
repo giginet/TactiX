@@ -9,6 +9,8 @@
 #include "Match.h"
 #include "Map.h"
 
+using namespace cocos2d;
+
 Match *Match::_currentMatch = NULL;
 
 Match::Match() : _currentTurn(1) ,_currentPhase(0) {

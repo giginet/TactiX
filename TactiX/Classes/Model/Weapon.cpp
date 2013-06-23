@@ -39,11 +39,11 @@ bool Weapon::canWin(Weapon *other) {
 
 std::string Weapon::getTypeName() {
     if (_type == WeaponTypeLiquid) {
-        return "液体";
+        return "Liquid";
     } else if (_type == WeaponTypeSolid) {
-        return "固体";
+        return "Solid";
     } else if (_type == WeaponTypePlasma) {
-        return "プラズマ";
+        return "Plasma";
     }
     return "";
 }
