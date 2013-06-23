@@ -16,6 +16,7 @@ using namespace cocos2d;
 
 typedef enum {
     CommandMenuStateTop,
+    CommandMenuStateMoved,
     CommandMenuStateAttack,
     CommandMenuStateMove,
     CommandMenuStateStay
@@ -28,6 +29,9 @@ class CommandMenu :public CCNode {
     CommandMenuState _state;
     CCMenu *_sideMenu;
     CCMenu *_topMenu;
+    CCMenuItem *_move;
+    CCMenuItem *_attack;
+    CCMenuItem *_stay;
     CommandMenuDelegate *_delegate;
     void onMoveButtonPressed(CCObject *sender);
     void onAttackButtonPressed(CCObject *sender);
@@ -38,6 +42,18 @@ class CommandMenu :public CCNode {
     void setDelegate(CommandMenuDelegate *delegate);
     CommandMenuState getState();
     void changeState(CommandMenuState state);
+    
+    inline CCMenuItem *getMoveItem() {
+        return _move;
+    }
+    
+    inline CCMenuItem *getAttackItem() {
+        return _attack;
+    }
+    
+    inline CCMenuItem *getStayItem() {
+        return _stay;
+    }
 };
 
 class CommandMenuDelegate {

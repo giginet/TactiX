@@ -71,7 +71,7 @@ Unit *Match::getCurrentUnitByPlayer(int playerID) {
     return dynamic_cast<Unit *>(units->objectAtIndex(player->getCurrentUnitIndex()));
 }
 
-void Match::endPhase() {
+bool Match::endPhase() {
     Player *currentPlayer = this->getCurrentPlayer();
     CCArray *units = this->getMap()->getUnitManager()->getUnitsByPlayerID(currentPlayer->getPlayerID());
     currentPlayer->setCurrentUnitIndex((currentPlayer->getCurrentUnitIndex() + 1) % units->count());
@@ -79,7 +79,9 @@ void Match::endPhase() {
     
     if (_currentPhase == 0) {
         _currentTurn += 1;
+        return true;
     }
+    return false;
 }
 
 Map *Match::getMap() {

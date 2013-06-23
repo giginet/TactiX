@@ -114,6 +114,28 @@ CCArray *Map::tilesInRange(const cocos2d::CCPoint &from, int minDistance, int ma
     return list;
 }
 
+CCArray *Map::tilesInAttackRange(Unit *unit) {
+    Weapon *weapon = unit->getCurrentWeapon();
+    CCPoint mapPoint = this->convertToMapSpace(unit->getPosition());
+    return this->tilesInAttackRange(weapon, mapPoint);
+}
+
+CCArray *Map::tilesInAttackRange(Weapon *weapon, const cocos2d::CCPoint &mapPoint) {
+    CCSize size = _map->getMapSize();
+    CCArray *list = CCArray::create();
+    for (int x = 0; x < size.width; ++ x) {
+        for (int y = 0; y < size.height; ++y) {
+            CCPoint p = ccp(x, y);
+            if (weapon->canAttack(ccpSub(p, mapPoint))) {
+                CCSprite *tile = this->getTileAt(p);
+                list->addObject(tile);
+            }
+        }
+    }
+    return list;
+
+}
+
 #pragma private
 
 bool Map::ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent) {

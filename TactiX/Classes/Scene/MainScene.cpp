@@ -46,27 +46,35 @@ void MainScene::onEnter() {
 
 void MainScene::onEnterTransitionDidFinish() {
     this->onTurnStart(1);
+    Unit *unit = _match->getCurrentUnit();
+    this->onPhaseStart(unit);
 }
 
 void MainScene::onTurnStart(int turn) {
+    
+}
+
+void MainScene::onPhaseStart(Unit *unit) {
     if (_commandMenu->getParent()) {
         _commandMenu->removeFromParent();
     }
     _match->getMap()->getEffectLayer()->removeAllChildrenWithCleanup(true);
     _commandMenu->changeState(CommandMenuStateTop);
     this->updateCursor();
-    Unit *unit = _match->getCurrentUnit();
     CCSize size = unit->getContentSize();
     _commandMenu->setPosition(ccp(size.width / 2.0, size.height / 2.0f));
     unit->addChild(_commandMenu);
     CCLog("%s, %s", unit->getCurrentWeapon()->getWeaponName().c_str(), unit->getCurrentWeapon()->getTypeName().c_str());
-}
-
-void MainScene::onPhaseStart(int phase) {
+    
+    CCArray *targets = _match->getMap()->getUnitManager()->getAttackTargets(_match->getCurrentUnit());
+    CCLog("targets = %d", targets->count());
+    _commandMenu->getAttackItem()->setEnabled(targets->count() > 0); // 攻撃対象がいるときのみ攻撃メニューを有効化
 }
 
 void MainScene::onMoved() {
     CCArray *targets = _match->getMap()->getUnitManager()->getAttackTargets(_match->getCurrentUnit());
+    _commandMenu->getAttackItem()->setEnabled(targets->count() > 0); // 攻撃対象がいるときのみ攻撃メニューを有効化
+    _commandMenu->changeState(CommandMenuStateMoved);
     if (targets->count() == 0) {
         this->nextPhase();
     } else {
@@ -75,8 +83,11 @@ void MainScene::onMoved() {
 }
 
 void MainScene::nextPhase() {
-    _match->endPhase();
-    this->onTurnStart(_match->getCurrentTurn());
+    if (_match->endPhase()) {
+        this->onTurnStart(_match->getCurrentTurn());
+    }
+    Unit *unit = _match->getCurrentUnit();
+    this->onPhaseStart(unit);
 }
 
 void MainScene::updateCursor() {
@@ -98,6 +109,19 @@ void MainScene::scrollViewDidZoom(cocos2d::extension::CCScrollView *view) {
 #pragma mark CommandMenuDelegate
 
 void MainScene::onAttackButtonPressed(CommandMenu *menu) {
+    if (menu->getState() == CommandMenuStateMove || menu->getState() == CommandMenuStateMoved) {
+        Unit *unit = dynamic_cast<Unit *>(menu->getParent());
+        CCArray *tiles = _match->getMap()->tilesInAttackRange(unit);
+        CCObject* obj = NULL;
+        CCARRAY_FOREACH(tiles, obj) {
+            CCSprite *tile = dynamic_cast<CCSprite *>(obj);
+            CCSprite *range = CCSprite::create("target.png");
+            range->setAnchorPoint(tile->getAnchorPoint());
+            range->setPosition(tile->getPosition());
+            _match->getMap()->getEffectLayer()->addChild(range);
+        }
+    }
+    menu->changeState(CommandMenuStateAttack);
 }
 
 void MainScene::onMoveButtonPressed(CommandMenu *menu) {

@@ -9,13 +9,17 @@
 #include "CommandMenu.h"
 
 CommandMenu::CommandMenu() {
-    CCMenuItemLabel *move = CCMenuItemLabel::create(CCLabelTTF::create("Move", "Helvetica", 24), this, menu_selector(CommandMenu::onMoveButtonPressed));
-    CCMenuItemLabel *attack = CCMenuItemLabel::create(CCLabelTTF::create("Attack", "Helvetica", 24), this, menu_selector(CommandMenu::onAttackButtonPressed));
-    CCMenuItemLabel *stay = CCMenuItemLabel::create(CCLabelTTF::create("Stay", "Helvetica", 24), this, menu_selector(CommandMenu::onStayButtonPressed));
+    _move = CCMenuItemLabel::create(CCLabelTTF::create("Move", "Helvetica", 24), this, menu_selector(CommandMenu::onMoveButtonPressed));
+    _attack = CCMenuItemLabel::create(CCLabelTTF::create("Attack", "Helvetica", 24), this, menu_selector(CommandMenu::onAttackButtonPressed));
+    _stay = CCMenuItemLabel::create(CCLabelTTF::create("Stay", "Helvetica", 24), this, menu_selector(CommandMenu::onStayButtonPressed));
     
-    _sideMenu = CCMenu::create(attack, stay, NULL);
+    _move->retain();
+    _attack->retain();
+    _stay->retain();
+    
+    _sideMenu = CCMenu::create(_attack, _stay, NULL);
     _sideMenu->retain();
-    _topMenu = CCMenu::create(move, NULL);
+    _topMenu = CCMenu::create(_move, NULL);
     _topMenu->retain();
     _delegate = NULL;
     
@@ -29,6 +33,9 @@ CommandMenu::CommandMenu() {
 }
 
 CommandMenu::~CommandMenu() {
+    _move->release();
+    _attack->release();
+    _stay->release();
     _sideMenu->release();
     _topMenu->release();
 }
@@ -61,4 +68,9 @@ CommandMenuState CommandMenu::getState() {
 
 void CommandMenu::changeState(CommandMenuState state) {
     _state = state;
+    if (state == CommandMenuStateAttack) {
+        _topMenu->setVisible(false);
+    } else {
+        _topMenu->setVisible(true);
+    }
 }

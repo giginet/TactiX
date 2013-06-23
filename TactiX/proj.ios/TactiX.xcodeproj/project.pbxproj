@@ -54,6 +54,7 @@
 		073DC8111764EE2E003615A6 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 073DC8101764EE2E003615A6 /* libcurl.a */; };
 		073DC8171765A5AB003615A6 /* Weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073DC8151765A5AB003615A6 /* Weapon.cpp */; };
 		073DC81A1765A5C3003615A6 /* Unit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073DC8181765A5C3003615A6 /* Unit.cpp */; };
+		073DD3F81776C5A7005833A0 /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = 073DD3F71776C5A7005833A0 /* target.png */; };
 		074B37DC1765F30300746CB0 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 074B37DA1765F30300746CB0 /* Character.cpp */; };
 		077C41391759105700024FE7 /* TactiX-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 077C41381759105700024FE7 /* TactiX-Info.plist */; };
 		077C413A175910E600024FE7 /* libcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077C41371759101600024FE7 /* libcocos2dx.a */; };
@@ -235,6 +236,7 @@
 		073DC8181765A5C3003615A6 /* Unit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Unit.cpp; path = Model/Unit.cpp; sourceTree = "<group>"; };
 		073DC81B1765A67F003615A6 /* Unit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Unit.h; path = include/Unit.h; sourceTree = "<group>"; };
 		073DC81C1765A684003615A6 /* Weapon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Weapon.h; path = include/Weapon.h; sourceTree = "<group>"; };
+		073DD3F71776C5A7005833A0 /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
 		074B37DA1765F30300746CB0 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Character.cpp; path = Model/Character.cpp; sourceTree = "<group>"; };
 		074B37DE1765F33300746CB0 /* Character.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Character.h; path = include/Character.h; sourceTree = "<group>"; };
 		077C41321759101600024FE7 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = ../../libs/cocos2dx/proj.ios/cocos2dx.xcodeproj; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 		073DC5021764C3E7003615A6 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				073DD3F71776C5A7005833A0 /* target.png */,
 				073ACB91177517EF00A5033F /* range.png */,
 				073DC5031764C3E7003615A6 /* crop.png */,
 				073DC5041764C3E7003615A6 /* dog.png */,
@@ -1022,6 +1025,7 @@
 				07A71F2B176B198100BA8EF6 /* cursor0.png in Resources */,
 				07A71F2C176B198100BA8EF6 /* cursor1.png in Resources */,
 				073ACB92177517EF00A5033F /* range.png in Resources */,
+				073DD3F81776C5A7005833A0 /* target.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

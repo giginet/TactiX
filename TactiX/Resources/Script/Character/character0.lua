@@ -3,9 +3,9 @@ Character = {
   name = "テストキャラ",
   faceGraphic = "face0.png",
   defaultWeapons = {
-    {WeaponKindSword, WeaponTypeFire},
-    {WeaponKindBow, WeaponTypeWater},
-    {WeaponKindSpear, WeaponTypeWood}
+    {WeaponKindSword, WeaponTypePlasma},
+    {WeaponKindBow, WeaponTypeSolid},
+    {WeaponKindSpear, WeaponTypeLiquid}
   }
 }
 

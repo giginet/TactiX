@@ -101,6 +101,24 @@ class Map :public CCLayer {
     CCArray *tilesInRange(const CCPoint &from, int minDistance, int maxDistance);
     
     /**
+     指定した武器を指定した地点から使った時に
+     攻撃範囲内にあるタイルを取り出します
+     @params Weapon &weapon
+     @params CCPoint &mapPoint 攻撃点
+     @return タイル一覧
+     */
+    CCArray *tilesInAttackRange(Weapon *weapon, const CCPoint &mapPoint);
+    
+    
+    /**
+     ユニットが現在装備中の武器を使った時に
+     攻撃範囲内にあるタイルを取り出します
+     @param 攻撃ユニット
+     @return タイル一覧
+     */
+    CCArray *tilesInAttackRange(Unit *unit);
+    
+    /**
      指定した2点間のマンハッタン距離を計算します
      @params point0 点1
      @params point1 点2

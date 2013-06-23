@@ -34,6 +34,10 @@ class Match :public CCObject {
     /** 現在対戦中のプレイヤー **/
     CCArray *_players;
     Map *_map;
+    
+    // シングルトンなのでコピーできない
+    Match(const Match &match);
+    Match operator=(const Match &Match);
   public:
     Match();
     ~Match();
@@ -83,8 +87,10 @@ class Match :public CCObject {
     
     /**
      今のフェーズを終了して、次のフェーズに移行します
+     ターンが変わったかどうかをboolで返します
+     @return ターンが変わったかどうか
      */
-    void endPhase();
+    bool endPhase();
     
     /**
      現在操作中のユニットを取り出します
